@@ -1,4 +1,4 @@
-import Avatar from "../Avatar/avatar";
+import Avatar from "components/Blog/Post/Avatar/avatar";
 import Date from "../Date/date";
 import CoverImage from "components/Cover";
 import PostTitle from "../Title/post-title";
