@@ -1,6 +1,9 @@
-import { parseISO, format } from 'date-fns'
+import moment from "moment";
 
 export default function Date({ dateString }) {
-  const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>
+  return (
+    <span dateTime={dateString}>
+      {moment(dateString).format("DD MMMM, YYYY")}
+    </span>
+  );
 }
