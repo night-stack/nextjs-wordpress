@@ -1,24 +1,27 @@
-import Head from 'next/head'
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
-import { CMS_NAME } from '../lib/constants'
+import Head from "next/head";
+import Container from "../components/Container/container";
+import MoreStories from "../components/Blog/Stories/more-stories";
+import HeroPost from "../components/Blog/Post/hero-post";
+
+import Layout from "../components/Blog/Layout/layout";
+import Articles from "~/components/Articles";
+import { getAllPostsForHome } from "../lib/api";
+import { CMS_NAME } from "../lib/constants";
+import Navbar from "../components/Navbar/navbar";
 
 export default function Index({ allPosts: { edges }, preview }) {
-  const heroPost = edges[0]?.node
-  const morePosts = edges.slice(1)
+  const heroPost = edges[0]?.node;
+  const morePosts = edges.slice(1);
 
   return (
     <>
+      <Navbar></Navbar>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Witech Enterprise | Your Business Solution</title>
         </Head>
         <Container>
-          <Intro />
+          <Articles posts={edges} />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -33,12 +36,12 @@ export default function Index({ allPosts: { edges }, preview }) {
         </Container>
       </Layout>
     </>
-  )
+  );
 }
 
 export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
+  const allPosts = await getAllPostsForHome(preview);
   return {
     props: { allPosts, preview },
-  }
+  };
 }

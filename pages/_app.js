@@ -1,7 +1,9 @@
-import '../styles/index.css'
+import "../styles/index.css";
+import "react-ig-feed/dist/index.css";
+import "react-multi-carousel/lib/styles.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;
