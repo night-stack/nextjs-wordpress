@@ -80,13 +80,13 @@ const CustomCarousel = ({
     >
       {posts.map(({ node }) => (
         <Card
-          key={node.slug}
-          title={node.title}
-          coverImage={node.featuredImage?.node}
-          date={node.date}
-          author={node.author?.node}
-          slug={node.slug}
-          excerpt={node.excerpt}
+          key={node?.slug}
+          title={node?.title}
+          coverImage={node?.featuredImage?.node}
+          date={node?.date}
+          author={node?.author?.node}
+          slug={node?.slug}
+          excerpt={node?.excerpt}
         />
       ))}
     </Carousel>

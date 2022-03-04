@@ -32,23 +32,23 @@ export default function Post({ post, posts, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post?.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
                 <meta
                   property="og:image"
-                  content={post.featuredImage?.node?.sourceUrl}
+                  content={post?.featuredImage?.node?.sourceUrl}
                 />
               </Head>
               <PostHeader
-                title={post.title}
-                coverImage={post.featuredImage?.node}
-                date={post.date}
-                author={post.author?.node}
-                categories={post.categories}
+                title={post?.title}
+                coverImage={post?.featuredImage?.node}
+                date={post?.date}
+                author={post?.author?.node}
+                categories={post?.categories}
               />
-              <PostBody content={post.content} />
+              <PostBody content={post?.content} />
               <footer>
-                {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
+                {post?.tags?.edges?.length > 0 && <Tags tags={post?.tags} />}
               </footer>
             </article>
 
