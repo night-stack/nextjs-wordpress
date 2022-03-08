@@ -43,7 +43,7 @@ const InstagramFeed = ({ posts }) => {
     },
     {
       displayName: "Hooela",
-      image: "/img/dummy_witech.jpg",
+      image: "/img/dummy_hooela.jpg",
       date: "22 Feb, 2022",
       caption:
         "Pake Hooela banyak loh benefitnya buat usaha kamu, berikut perbedaannya antara tempat makan yang memakai Hooela dengan yang tidak.",

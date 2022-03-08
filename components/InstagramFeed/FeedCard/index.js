@@ -3,9 +3,10 @@ import React from "react";
 const FeedCard = ({ datas }) => {
   return (
     <div
-      className="w-full flex"
+      className="flex"
       style={{
         marginLeft: -10,
+        marginRight: -10,
       }}
     >
       {datas.map((data, index) => (
