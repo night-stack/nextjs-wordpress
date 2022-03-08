@@ -1,7 +1,8 @@
 import "../styles/index.css";
 import "react-ig-feed/dist/index.css";
-import "react-multi-carousel/lib/styles.css";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "../styles/style.css"
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }

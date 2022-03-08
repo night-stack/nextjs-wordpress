@@ -1,17 +1,17 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "components/Container/container";
-import PostBody from "../../components/Blog/Post/Body/post-body";
+import PostBody from "../../components/Post/Body/post-body";
 import MoreStories from "../../components/Blog/Stories/more-stories";
 import Header from "../../components/Header/header";
-import PostHeader from "../../components/Blog/Post/Header/post-header";
-import SectionSeparator from "../../components/Blog/Separator/section-separator";
+import PostHeader from "../../components/Post/Header/post-header";
+import SectionSeparator from "../../components/Post/Separator/section-separator";
 import Layout from "components/Blog/Layout/layout";
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api";
-import PostTitle from "components/Blog/Post/Header/post-header";
+import PostTitle from "~/components/Post/Header/post-header";
 import Head from "next/head";
 import { CMS_NAME } from "../../lib/constants";
-import Tags from "../../components/Blog/Post/Tags/tags";
+import Tags from "../../components/Post/Tags/tags";
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter();
@@ -31,24 +31,22 @@ export default function Post({ post, posts, preview }) {
           <>
             <article>
               <Head>
-                <title>
-                  {post?.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
+                <title>Witech Enterprise - {post.title}</title>
                 <meta
                   property="og:image"
-                  content={post?.featuredImage?.node?.sourceUrl}
+                  content={post.featuredImage?.node?.sourceUrl}
                 />
               </Head>
               <PostHeader
-                title={post?.title}
-                coverImage={post?.featuredImage?.node}
-                date={post?.date}
-                author={post?.author?.node}
-                categories={post?.categories}
+                title={post.title}
+                coverImage={post.featuredImage?.node}
+                date={post.date}
+                author={post.author?.node}
+                categories={post.categories}
               />
-              <PostBody content={post?.content} />
+              <PostBody content={post.content} />
               <footer>
-                {post?.tags?.edges?.length > 0 && <Tags tags={post?.tags} />}
+                {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
               </footer>
             </article>
 
@@ -77,7 +75,7 @@ export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug();
 
   return {
-    paths: allPosts?.edges.map(({ node }) => `/posts/${node.slug}`) || [],
+    paths: allPosts.edges.map(({ node }) => `/posts/${node.slug}`) || [],
     fallback: true,
   };
 }

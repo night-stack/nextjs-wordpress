@@ -1,46 +1,49 @@
 import React from "react";
-import Image from "next/image";
-
-export default function Navbar() {
+import DropdownLink from "../DropdownLink";
+import NavbarMenu from "./navbar-menu";
+export default function Navbar() { 
+  const contacts = [
+    {name : "Phone Number",
+    link : "#"
+  },
+    {name : "Email",
+    link : "#"
+  },
+    {name : "Whatsapp",
+    link : "#"
+  },
+    {name : "Instagram",
+    link : "#"
+  },
+    {name : "Facebook",
+    link : "#"
+  }
+  ]
   return (
-    <div className="bg-witech-dark-blue text-white">
-      <div className="flex">
-        <div className="flex justify-around w-full text-sm">
-          <div className="flex">
-            <img height={50} src="/img/logo.png" className="block px-4 py-5" />
-            <a href="#" className="block px-4 py-5">
-              Home
-            </a>
-            <a href="#" className="block px-4 py-5">
-              Careers
-            </a>
-            <a href="#" className="block px-4 py-5">
-              Services
-            </a>
-            <a href="#" className="block px-4 py-5">
-              About
-            </a>
-            <a href="#" className="block px-4 py-5">
-              Blogs
-            </a>
+    <>
+      <nav className="bg-witech-dark-blue text-white text-sm font-bold">
+        <div className="grid grid-cols-12 gap-2 items-center py-4">
+          <div className="col-span-1 col-start-2">
+            <img src="/img/logo.png" className="h-12 w-12"></img>
           </div>
-          <div className="flex">
-            <div className="flex">
-              <a href="#" className="block px-4 py-5">
-                Language Logo
+          <NavbarMenu />
+          <div className="flex items-center">
+            <div className="flex items-center">
+              <div className="flex items-center">
+              <a className="w-6 h-6">
+                <img src="/img/globe.png" />
               </a>
-              <a href="#" className="block px-4 py-5">
-                Language
-              </a>
-            </div>
-            <div className="flex">
-              <button href="#" className="bg-witech-link px-12 m-2">
-                Contact
-              </button>
+              <a className="px-2">En</a>
+              </div>
+              <div className="ml-8 items-center flex text-black bg-witech-link" style={{width:"140px",height:"45px"}}>
+                <div className="pl-8">
+                  <DropdownLink title={"Contact"} datas={contacts}></DropdownLink>
+                </div>     
+              </div>             
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </nav>
+    </>
   );
 }
