@@ -11,12 +11,13 @@
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-ig-feed": "^1.0.4"
+    "react-ig-feed": "^1.0.4",
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "autoprefixer": "10.4.2",
     "postcss": "8.4.5",
-    "react-multi-carousel": "^2.8.0",
     "tailwindcss": "^3.0.15"
   }
 }
