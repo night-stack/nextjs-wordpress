@@ -14,6 +14,7 @@ module.exports = {
         "witech-dark-blue": "#05103A",
         "witech-blue": "#061A64",
         "witech-link": "#67F8EF",
+        "hero-dots": "#293461",
       },
       spacing: {
         28: "7rem",
