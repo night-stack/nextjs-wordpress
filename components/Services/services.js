@@ -33,8 +33,8 @@ const Services = () => {
         marginLeft: "-10px",
       }}
     >
-      {services.map((service) => (
-        <ServicesItem data={service} />
+      {services.map((service, index) => (
+        <ServicesItem key={index} data={service} />
       ))}
     </div>
   );

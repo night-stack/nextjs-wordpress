@@ -4,6 +4,8 @@ import Button from "components/Button";
 import CustomDots from "./CustomDots";
 
 const Hero = ({ data }) => {
+  const [active, setActive] = React.useState("odoo");
+
   return (
     <div
       className="bg-witech-dark-blue pb-5"
@@ -14,13 +16,19 @@ const Hero = ({ data }) => {
       <div className="headline container mx-auto">
         {data.map((val) => (
           <div
-            id={val.id}
+            key={val.id}
             className="headline-item flex w-full h-full my-auto"
-            style={val.id !== "odoo" ? { display: "none" } : null}
+            style={val.id !== active ? { display: "none" } : null}
           >
             <div className="w-1/2 my-auto pr-4 pb-20">
               <div className="flex font-lg text-white font-bold items-center">
-                <img src={val.image} alt={`logo-${val.id}`} className="mr-4" />
+                <img
+                  src={val.image}
+                  alt={`logo-${val.id}`}
+                  className="mr-4"
+                  width={30}
+                  height={30}
+                />
                 {val.title}
               </div>
               <h1 className="text-4xl font-bold text-white mt-6">
@@ -51,7 +59,7 @@ const Hero = ({ data }) => {
           </div>
         ))}
       </div>
-      <CustomDots data={data} />
+      <CustomDots data={data} onClick={setActive} active={active} />
     </div>
   );
 };

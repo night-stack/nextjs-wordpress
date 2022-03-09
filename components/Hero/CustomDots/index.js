@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomDots = ({ data }) => {
+const CustomDots = ({ data, onClick, active }) => {
   return (
     <div
       className="w-full mx-auto flex justify-center"
@@ -10,7 +10,11 @@ const CustomDots = ({ data }) => {
       }}
     >
       {data.map((val) => (
-        <div id={val.id} className="mx-2.5 custom-dots cursor-pointer">
+        <div
+          key={val.id}
+          className="mx-2.5 custom-dots cursor-pointer"
+          onClick={() => onClick(val.id)}
+        >
           <div
             className="p-5 bg-hero-dots"
             style={{
@@ -29,7 +33,7 @@ const CustomDots = ({ data }) => {
             <div className="text-white text-sm font-medium">{val.heroText}</div>
           </div>
           <div
-            className={`progress-bar ${val.id === "odoo" ? "active" : ""}`}
+            className={`progress-bar ${val.id === active ? "active" : ""}`}
           />
         </div>
       ))}
