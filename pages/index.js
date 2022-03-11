@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import Container from "../components/Container/container";
 
@@ -13,14 +14,15 @@ import Footer from "~/components/Footer/footer";
 
 export default function Index({ allPosts: { edges }, preview }) {
   // const heroPost = edges[0]?.node;Layout
+  const [autoPlay, setAutoPlay] = React.useState(3);
   const posts = edges.slice(0, 6);
   const heroData = [
     {
       id: "development",
       title: "Development",
-      heroText: "We will hel digital transformation and grow your business",
+      heroText: "We will help digital transformation and grow your business",
       image: "/img/logo.png",
-      heroImage: "/img/odoo.png",
+      heroImage: "/img/witech.png",
     },
     {
       id: "odoo",
@@ -34,14 +36,18 @@ export default function Index({ allPosts: { edges }, preview }) {
       title: "Hooela",
       heroText: "Digitize and Simplify every process in your F&B Business",
       image: "/img/hooela-logo.png",
-      heroImage: "/img/odoo.png",
+      heroImage: "/img/hooela.png",
     },
   ];
+
+  const stopAutoPlay = React.useCallback(() => {
+    setAutoPlay(0);
+  }, []);
 
   return (
     <>
       <Navbar />
-      <Hero data={heroData} />
+      <Hero data={heroData} autoPlay={autoPlay} stopAutoPlay={stopAutoPlay} />
       <Layout preview={preview}>
         <Head>
           <title>Witech Enterprise | Your Business Solution</title>
@@ -51,30 +57,6 @@ export default function Index({ allPosts: { edges }, preview }) {
         </Container>
         <Container>
           <InstagramFeed />
-        </Container>
-        <Container>
-          <div className="flex justify-between items-center">
-            <div
-              className="text-4xl font-bold"
-              style={{ width: "500px", height: "156px" }}
-            >
-              <h1>
-                We build application that drive traffic,engagement, and
-                conversion for industry-leading brands.
-              </h1>
-            </div>
-            <div className="flex">
-              <img
-                src="/img/asset1.png"
-                className="relative left-56 top-4"
-                style={{ width: "289px", height: "285px" }}
-              ></img>
-              <img
-                src="/img/rectangle.png"
-                style={{ width: "276px", height: "299px" }}
-              ></img>
-            </div>
-          </div>
         </Container>
         <Container>
           <Services />

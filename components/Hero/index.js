@@ -1,10 +1,128 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Button from "components/Button";
 import CustomDots from "./CustomDots";
 
-const Hero = ({ data }) => {
-  const [active, setActive] = React.useState("odoo");
+const isBrowser = () => typeof window !== "undefined";
+
+const Hero = ({ data, autoPlay, stopAutoPlay }) => {
+  const getWidth = () => !isBrowser && window.innerWidth;
+  const autoPlayRef = useRef();
+  const transitionRef = useRef();
+  const resizeRef = useRef();
+
+  const firstSlide = data[0];
+  const secondSlide = data[1];
+  const lastSlide = data[data.length - 1];
+
+  const [state, setState] = useState({
+    activeSlide: 0,
+    translate: getWidth(),
+    transition: 0.45,
+    _slides: [firstSlide, secondSlide, lastSlide],
+  });
+
+  const { activeSlide, translate, _slides, transition } = state;
+
+  useEffect(() => {
+    transitionRef.current = smoothTransition;
+    resizeRef.current = handleResize;
+    autoPlayRef.current = autoPlay ? nextSlide : null;
+  });
+
+  // Reactivate the transition that is removed in smoothTransition.
+  useEffect(() => {
+    if (transition === 0) setState({ ...state, transition: 0.45 });
+  }, [transition]);
+
+  // AutoPlay
+  useEffect(() => {
+    if (autoPlay) {
+      const play = () => {
+        autoPlayRef.current();
+      };
+      const interval = setInterval(play, autoPlay * 2000);
+
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [autoPlay]);
+
+  // Smooth transitions and browser resizing.
+  useEffect(() => {
+    const smooth = (e) => {
+      if (e.target.className.includes("headline-item")) {
+        transitionRef.current();
+      }
+    };
+
+    const resize = () => {
+      resizeRef.current();
+    };
+
+    const transitionEnd = window.addEventListener("transitionend", smooth);
+    const onResize = window.addEventListener("resize", resize);
+
+    return () => {
+      window.removeEventListener("transitionend", transitionEnd);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  const handleResize = () => {
+    setState({ ...state, translate: getWidth(), transition: 0 });
+  };
+
+  const smoothTransition = () => {
+    let _slides = [];
+
+    // We're at the last slide.
+    if (activeSlide === data.length - 1)
+      _slides = [data[data.length - 2], lastSlide, firstSlide];
+    // We're back at the first slide. Just reset to how it was on initial render
+    else if (activeSlide === 0) _slides = [lastSlide, firstSlide, secondSlide];
+    // Create an array of the previous last slide, and the next two slides that follow it.
+    else _slides = data.slice(activeSlide - 1, activeSlide + 2);
+
+    setState({
+      ...state,
+      _slides,
+      transition: 0,
+      translate: getWidth(),
+    });
+  };
+
+  const hasAutoPlayBeenStopped = (e) => {
+    if (
+      e &&
+      autoPlayRef.current &&
+      e.target.className.includes("custom-dots")
+    ) {
+      stopAutoPlay();
+      autoPlayRef.current = null;
+    }
+  };
+
+  const nextSlide = (e) => {
+    hasAutoPlayBeenStopped(e);
+
+    setState({
+      ...state,
+      translate: translate + getWidth(),
+      activeSlide: activeSlide === data.length - 1 ? 0 : activeSlide + 1,
+    });
+  };
+
+  const onClick = (e, i) => {
+    hasAutoPlayBeenStopped(e);
+
+    setState({
+      ...state,
+      translate: translate + getWidth(),
+      activeSlide: i,
+    });
+  };
 
   return (
     <div
@@ -13,26 +131,27 @@ const Hero = ({ data }) => {
         paddingTop: 70,
       }}
     >
-      <div className="headline container mx-auto">
-        {data.map((val) => (
+      <div className="headline container mx-auto md:px-35">
+        {_slides.map((_slide, i) => (
           <div
-            key={val.id}
-            className="headline-item flex w-full h-full my-auto"
-            style={val.id !== active ? { display: "none" } : null}
+            key={_slide.id + i}
+            className={`headline-item w-full h-full my-auto ${
+              i !== activeSlide ? "hidden" : "active"
+            }`}
           >
             <div className="w-1/2 my-auto pr-4 pb-20">
-              <div className="flex font-lg text-white font-bold items-center">
+              <div className="flex text-lg text-white font-bold items-center">
                 <img
-                  src={val.image}
-                  alt={`logo-${val.id}`}
+                  src={_slide.image}
+                  alt={`logo-${_slide.id}`}
                   className="mr-4"
                   width={30}
                   height={30}
                 />
-                {val.title}
+                {_slide.title}
               </div>
-              <h1 className="text-4xl font-bold text-white mt-6">
-                {val.heroText}
+              <h1 className="text-3.5xl font-bold text-white mt-6 leading-11">
+                {_slide.heroText}
               </h1>
               <div className="flex flex-row mt-7">
                 <div className="mr-5" style={{ width: 140 }}>
@@ -52,14 +171,14 @@ const Hero = ({ data }) => {
               <Image
                 width={428}
                 height={344}
-                src={val.heroImage}
-                alt={`hero-${val.id}`}
+                src={_slide.heroImage}
+                alt={`hero-${_slide.id}`}
               />
             </div>
           </div>
         ))}
       </div>
-      <CustomDots data={data} onClick={setActive} active={active} />
+      <CustomDots data={data} onClick={onClick} activeSlide={activeSlide} />
     </div>
   );
 };

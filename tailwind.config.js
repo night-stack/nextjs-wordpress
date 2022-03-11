@@ -17,15 +17,25 @@ module.exports = {
         "hero-dots": "#293461",
       },
       spacing: {
+        7.5: "30px",
+        13: "50px",
+        25: "100px",
         28: "7rem",
+        35: "150px",
+        63: "250px",
+        md: "8.6%",
+        "md-menu": "8.81%",
+        lg: "12.2%",
       },
       letterSpacing: {
         tighter: "-.04em",
       },
       lineHeight: {
         tight: 1.2,
+        11: "52px",
       },
       fontSize: {
+        "3.5xl": "32px",
         "5xl": "2.5rem",
         "6xl": "2.75rem",
         "7xl": "4.5rem",

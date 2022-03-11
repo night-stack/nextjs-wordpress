@@ -7,12 +7,12 @@ const DropdownLink = ({ title, datas }) => {
     <div className="flex">
       <button
         type="button"
-        className="flex justify-between items-center py-2 pr-4 pl-3 w-full font-bold md:border-0 md:hover:text-gray-700 md:p-0 md:w-auto outline-none text-sm"
+        className="flex justify-between items-center py-2 w-full font-bold border-0 outline-none text-sm"
         onClick={() => setShow(!show)}
       >
         {title}
         <svg
-          className="ml-1 w-10 h-4"
+          className="h-5 ml-2.5"
           fill="currentColor"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
@@ -28,8 +28,7 @@ const DropdownLink = ({ title, datas }) => {
       <div
         className={`${
           show ? "block" : "hidden"
-        } z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute mt-12`}
-        style={{ right: "7.25%" }}
+        } z-10 w-44 text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute mt-10 md:right-md right-lg`}
       >
         <ul className="py-1">
           {datas.map((data, index) => (

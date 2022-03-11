@@ -1,6 +1,49 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 
-const CustomDots = ({ data, onClick, active }) => {
+const CustomDots = ({ data, onClick, activeSlide }) => {
+  const [scale, setScale] = useState(1);
+  const scaleUpRef = useRef();
+
+  useEffect(() => {
+    scaleUpRef.current = startProgress ?? null;
+  });
+
+  useEffect(() => {
+    const play = () => {
+      scaleUpRef.current();
+    };
+
+    const interval = setInterval(play, 10);
+
+    return () => {
+      clearInterval(interval);
+      hasAutoProgressBeenStopped();
+    };
+  }, [activeSlide]);
+
+  useEffect(() => {
+    console.log("change");
+  }, [activeSlide]);
+
+  const progress = () => {
+    if (scale >= 100) {
+      setScale(1);
+    } else {
+      setScale((scale += 0.178));
+    }
+  };
+
+  const hasAutoProgressBeenStopped = (e) => {
+    scaleUpRef.current = null;
+    setScale(1);
+  };
+
+  const startProgress = (e) => {
+    if (scale <= 100) {
+      setScale((scale += 0.177));
+    }
+  };
+
   return (
     <div
       className="w-full mx-auto flex justify-center"
@@ -9,11 +52,11 @@ const CustomDots = ({ data, onClick, active }) => {
         top: -55,
       }}
     >
-      {data.map((val) => (
+      {data.map((val, i) => (
         <div
           key={val.id}
           className="mx-2.5 custom-dots cursor-pointer"
-          onClick={() => onClick(val.id)}
+          onClick={(e) => onClick(e, i)}
         >
           <div
             className="p-5 bg-hero-dots"
@@ -33,7 +76,10 @@ const CustomDots = ({ data, onClick, active }) => {
             <div className="text-white text-sm font-medium">{val.heroText}</div>
           </div>
           <div
-            className={`progress-bar ${val.id === active ? "active" : ""}`}
+            className={`progress-bar ${i === activeSlide ? "active" : ""}`}
+            style={{
+              width: `${scale}%`,
+            }}
           />
         </div>
       ))}
