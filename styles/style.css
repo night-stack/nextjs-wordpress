@@ -42,8 +42,11 @@ a.active::before {
   height: 5px;
   width: 5px;
   margin-right: 10px;
-  margin-left: 9px;
   background-color: #67f8ef;
+}
+
+li.nav-link:first-child a {
+  margin-left: 9px;
 }
 
 nav {

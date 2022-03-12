@@ -21,10 +21,6 @@ const CustomDots = ({ data, onClick, activeSlide }) => {
     };
   }, [activeSlide]);
 
-  useEffect(() => {
-    console.log("change");
-  }, [activeSlide]);
-
   const progress = () => {
     if (scale >= 100) {
       setScale(1);

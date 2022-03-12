@@ -1,38 +1,49 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const router = useRouter();
   const [show, setShow] = useState(false);
 
   return (
     <>
       <nav className="bg-witech-dark-blue text-white text-sm font-bold">
-        <div className="flex items-center py-4 max-content px-25">
+        <div className="flex items-center py-4 container mx-auto px-25">
           <a href="/">
             <img src="/img/logo.png" className="h-12 w-12" />
           </a>
           <ul className="flex ml-5">
-            <li>
-              <a href="#" className="px-4 active">
+            <li className="nav-link">
+              <a
+                href="/"
+                className={router?.route === "/" ? "px-4 active" : "px-4"}
+              >
                 Home
               </a>
             </li>
-            <li>
+            <li className="nav-link">
               <a href="#" className="px-4">
                 Careers
               </a>
             </li>
-            <li>
+            <li className="nav-link">
               <a href="#services" className="px-4">
                 Services
               </a>
             </li>
-            <li>
-              <a href="/about" className="px-4">
+            <li className="nav-link">
+              <a
+                href="/about"
+                className={router?.route === "/about" ? "px-4 active" : "px-4"}
+              >
                 About
               </a>
             </li>
-            <li>
-              <a href="#" className="px-4">
+            <li className="nav-link">
+              <a
+                href="#"
+                className={router?.route === "/blogs" ? "px-4 active" : "px-4"}
+              >
                 Blogs
               </a>
             </li>
@@ -125,21 +136,6 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            {/* <div>
-              <ul className="flex items-center">
-                <li className="px-1"><a>
-                  <img src="/img/globe.png" />
-                </a>
-                </li>
-                <li className="px-1 font-bold">En
-                </li>
-                <li className="pr-10 pl-9">
-                  <div className="text-black bg-witech-link justify-center flex" style={{ minWidth: "140px", height: "45px" }}>
-                    <DropdownLink title={"Contact"} datas={contacts} />
-                  </div>
-                </li>
-              </ul>
-            </div> */}
           </div>
         </div>
       </nav>
