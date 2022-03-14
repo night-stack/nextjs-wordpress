@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Button from "components/Button";
+import { useRouter } from "next/router";
 import CustomDots from "./CustomDots";
 
 const isBrowser = () => typeof window !== "undefined";
@@ -10,10 +11,12 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
   const autoPlayRef = useRef();
   const transitionRef = useRef();
   const resizeRef = useRef();
+  const { locale } = useRouter();
+  const filterData = data.filter((data) => data.locale === locale);
 
-  const firstSlide = data[0];
-  const secondSlide = data[1];
-  const lastSlide = data[data.length - 1];
+  const firstSlide = filterData[0];
+  const secondSlide = filterData[1];
+  const lastSlide = filterData[filterData.length - 1];
 
   const [state, setState] = useState({
     activeSlide: 0,
@@ -23,6 +26,13 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
   });
 
   const { activeSlide, translate, _slides, transition } = state;
+
+  useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      _slides: [firstSlide, secondSlide, lastSlide],
+    }));
+  }, [locale]);
 
   useEffect(() => {
     transitionRef.current = smoothTransition;
@@ -78,12 +88,12 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
     let _slides = [];
 
     // We're at the last slide.
-    if (activeSlide === data.length - 1)
-      _slides = [data[data.length - 2], lastSlide, firstSlide];
+    if (activeSlide === filterData.length - 1)
+      _slides = [filterData[filterData.length - 2], lastSlide, firstSlide];
     // We're back at the first slide. Just reset to how it was on initial render
     else if (activeSlide === 0) _slides = [lastSlide, firstSlide, secondSlide];
     // Create an array of the previous last slide, and the next two slides that follow it.
-    else _slides = data.slice(activeSlide - 1, activeSlide + 2);
+    else _slides = filterData.slice(activeSlide - 1, activeSlide + 2);
 
     setState({
       ...state,
@@ -110,7 +120,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
     setState({
       ...state,
       translate: translate + getWidth(),
-      activeSlide: activeSlide === data.length - 1 ? 0 : activeSlide + 1,
+      activeSlide: activeSlide === filterData.length - 1 ? 0 : activeSlide + 1,
     });
   };
 
@@ -155,11 +165,13 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
               </h1>
               <div className="flex flex-row mt-7">
                 <div className="mr-5" style={{ width: 140 }}>
-                  <Button className="w-full">Pricing</Button>
+                  <Button className="w-full">
+                    {locale === "en" ? "Pricing" : "Harga"}
+                  </Button>
                 </div>
                 <div style={{ width: 140 }}>
                   <Button color="secondary" className="w-full">
-                    Learn More
+                    {locale === "en" ? "Learn More" : "Pelajari Lebih"}
                   </Button>
                 </div>
               </div>

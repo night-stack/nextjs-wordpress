@@ -26,6 +26,8 @@ module.exports = {
         md: "8.6%",
         "md-menu": "8.81%",
         lg: "12.2%",
+        "lang-md": "22.2%",
+        "lang-lg": "19.4%",
       },
       letterSpacing: {
         tighter: "-.04em",

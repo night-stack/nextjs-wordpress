@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/router";
 
 const CustomDots = ({ data, onClick, activeSlide }) => {
   const [scale, setScale] = useState(1);
   const scaleUpRef = useRef();
+  const { locale } = useRouter();
 
   useEffect(() => {
     scaleUpRef.current = startProgress ?? null;
@@ -48,37 +50,41 @@ const CustomDots = ({ data, onClick, activeSlide }) => {
         top: -55,
       }}
     >
-      {data.map((val, i) => (
-        <div
-          key={val.id}
-          className="mx-2.5 custom-dots cursor-pointer"
-          onClick={(e) => onClick(e, i)}
-        >
+      {data
+        .filter((val) => val.locale === locale)
+        .map((val, i) => (
           <div
-            className="p-5 bg-hero-dots"
-            style={{
-              maxWidth: "178px",
-            }}
+            key={val.id}
+            className="mx-2.5 custom-dots cursor-pointer"
+            onClick={(e) => onClick(e, i)}
           >
-            <img
-              src={val.image}
-              alt={`logo-${val.id}`}
-              height={30}
-              width={30}
-              className="mb-7"
+            <div
+              className="p-5 bg-hero-dots"
+              style={{
+                maxWidth: "178px",
+              }}
+            >
+              <img
+                src={val.image}
+                alt={`logo-${val.id}`}
+                height={30}
+                width={30}
+                className="mb-7"
+              />
+              <div className="font-bold text-base text-white">{val.title}</div>
+              <hr className="custom-separator" />
+              <div className="text-white text-sm font-medium">
+                {val.heroText}
+              </div>
+            </div>
+            <div
+              className={`progress-bar ${i === activeSlide ? "active" : ""}`}
+              style={{
+                width: `${scale}%`,
+              }}
             />
-            <div className="font-bold text-base text-white">{val.title}</div>
-            <hr className="custom-separator" />
-            <div className="text-white text-sm font-medium">{val.heroText}</div>
           </div>
-          <div
-            className={`progress-bar ${i === activeSlide ? "active" : ""}`}
-            style={{
-              width: `${scale}%`,
-            }}
-          />
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

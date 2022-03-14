@@ -30,7 +30,7 @@ const DropdownLink = ({ title, datas }) => {
           show ? "block" : "hidden"
         } z-10 w-44 text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute mt-10 md:right-md right-lg`}
       >
-        <ul className="py-1">
+        <ul>
           {datas.map((data, index) => (
             <li key={index}>
               <a

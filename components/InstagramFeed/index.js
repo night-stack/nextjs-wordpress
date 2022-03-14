@@ -4,7 +4,7 @@ import DropdownLink from "../DropdownLink";
 import FeedCard from "./FeedCard";
 
 const InstagramFeed = ({ posts }) => {
-  const router = useRouter();
+  const { locale } = useRouter();
   const [filter, setFilter] = useState("All");
   const socials = [
     {
@@ -63,7 +63,7 @@ const InstagramFeed = ({ posts }) => {
                 filter === "All" ? "font-semibold" : "link-inactive font-medium"
               }`}
             >
-              All
+              {locale === "en" ? "All" : "Semua"}
             </li>
             {socials.map((social, index) => (
               <li
@@ -80,7 +80,10 @@ const InstagramFeed = ({ posts }) => {
             ))}
           </ul>
         </div>
-        <DropdownLink datas={socials} title="View More" />
+        <DropdownLink
+          datas={socials}
+          title={locale === "en" ? "View More" : "Lihat Lainnya"}
+        />
       </div>
       <FeedCard datas={dummyFeed} />
     </div>

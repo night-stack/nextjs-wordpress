@@ -5,28 +5,59 @@ import Navbar from "~/components/Navbar/navbar";
 import Layout from "~/components/Layout/layout";
 import Chat from "~/components/Chat";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const About = () => {
+  const { locale } = useRouter();
+
   const services = [
     {
+      locale: "en",
       logo: "/img/assetappdev.png",
       title: "App Development",
       desc: "We cover backend and frontend using latest technology stacks, as well as CMS Development, Development Consulting, Support, and Maintenance.",
     },
     {
+      locale: "en",
       logo: "/img/assetwebdesign.png",
       title: "Web Design",
       desc: "Create a website application according to your needs, we will help you to give best version of your website design.",
     },
     {
+      locale: "en",
       logo: "/img/assetenterpriseapps.png",
       title: "Enterprise Apps",
       desc: "We can help integrate apps and provide best solution to maintain company stability, balance, maintenance, technology & support to ensure your business.",
     },
     {
+      locale: "en",
       logo: "/img/assetitinfrastructure.png",
       title: "IT Infrastructure",
       desc: "Fulfill hardware & software company. We will setup and optimize IT infrastructure also provide IT teams that can carry out maintenance & Technical support.",
+    },
+    {
+      locale: "id",
+      logo: "/img/assetappdev.png",
+      title: "Pengembangan Aplikasi",
+      desc: "Kami mencakup backend dan frontend menggunakan tumpukan teknologi terbaru, serta Pengembangan CMS, Konsultasi Pengembangan, Dukungan, dan Pemeliharaan.",
+    },
+    {
+      locale: "id",
+      logo: "/img/assetwebdesign.png",
+      title: "Desain Web",
+      desc: "Buat aplikasi website sesuai kebutuhan Anda, kami dengan senang hati akan membantu Anda untuk memberikan versi terbaik dari desain website Anda.",
+    },
+    {
+      locale: "id",
+      logo: "/img/assetenterpriseapps.png",
+      title: "Aplikasi Perusahaan",
+      desc: "Kami membantu mengintegrasikan aplikasi dan memberikan solusi terbaik untuk menjaga stabilitas, keseimbangan, pemeliharaan, teknologi & dukungan perusahaan untuk memastikan bisnis Anda.",
+    },
+    {
+      locale: "id",
+      logo: "/img/assetitinfrastructure.png",
+      title: "Infrastruktur IT",
+      desc: "Memenuhi perusahaan perangkat keras & perangkat lunak. Kami akan menyiapkan dan mengoptimalkan infrastruktur TI serta menyediakan tim TI yang dapat melakukan pemeliharaan & dukungan Teknis.",
     },
   ];
 
@@ -34,7 +65,9 @@ const About = () => {
     <>
       <Layout>
         <Head>
-          <title>Witech Enterprise - About Us</title>
+          <title>{`Witech Enterprise - ${
+            locale === "en" ? "About Us" : "Tentang Kami"
+          }`}</title>
         </Head>
         <Navbar />
         <div className="bg-witech-dark-blue background-img-about mx-auto">
@@ -49,7 +82,7 @@ const About = () => {
             <div className="w-1/2 mb-25">
               <div className="mb-7.5">
                 <h1 className="text-witech-link text-xl">
-                  Let’s get acquainted
+                  {locale === "en" ? "Let’s get acquainted" : "Mari berkenalan"}
                 </h1>
               </div>
               <div>
@@ -59,16 +92,16 @@ const About = () => {
                     fontSize: 33,
                   }}
                 >
-                  We’re software house and design agency company based in Medan,
-                  North Sumatera
+                  {locale === "en"
+                    ? "We’re software house and design agency company based in Medan, North Sumatera"
+                    : "Kami adalah perusahaan software house dan agensi desain berbasis di Medan, Sumatera Utara"}
                 </h1>
               </div>
               <div className="pt-5">
                 <h1 className="text-white text-lg font-normal">
-                  We ensure quality and privacy in our work. We have
-                  professional teams with experience and expertise in
-                  application development. Our team consists of various
-                  devisions and can develop with many frameworks.
+                  {locale === "en"
+                    ? "We ensure quality and privacy in our work. We have professional teams with experience and expertise in application development. Our team consists of various devisions and can develop with many frameworks."
+                    : "Kami memastikan kualitas dan privasi dalam pekerjaan kami. Memiliki tim profesional dengan pengalaman & keahlian dalam pengembangan aplikasi. Tim kami terdiri dari berbagai divisi & dapat menggunakan banyak framework."}
                 </h1>
               </div>
             </div>
@@ -77,7 +110,9 @@ const About = () => {
         </div>
         <Container>
           <div id="services" className="mb-7.5">
-            <h1 className="font-bold text-lg">Our Services</h1>
+            <h1 className="font-bold text-lg">
+              {locale === "en" ? "Our Services" : "Layanan Kami"}
+            </h1>
           </div>
           <div>
             <div
@@ -87,48 +122,50 @@ const About = () => {
                 marginLeft: "-10px",
               }}
             >
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-witech-dark-blue w-1/4 mx-2.5 p-5"
-                  style={{ minHeight: 360 }}
-                >
-                  <div className="img-wrapper mt-7 mb-5">
-                    <img
-                      src={service?.logo}
-                      className="left-2 bottom-2 relative"
-                    />
-                  </div>
-                  <h1 className="text-sm font-bold text-white mb-5">
-                    {service?.title}
-                  </h1>
-                  <p
-                    className="text-sm md:text-ss text-white"
-                    style={{ minHeight: 100 }}
+              {services
+                .filter((service) => service.locale === locale)
+                .map((service, index) => (
+                  <div
+                    key={index}
+                    className="bg-witech-dark-blue w-1/4 mx-2.5 p-5"
+                    style={{ minHeight: 360 }}
                   >
-                    {service?.desc}
-                  </p>
-                  <div className="mt-7 md:mt-4 flex mb-9 md:mb-6 items-center cursor-pointer">
-                    <h1 className="text-sm text-witech-link">Contact Us</h1>
-                    <img className="ml-2.5" src="/img/arrow.png" />
+                    <div className="img-wrapper mt-7 mb-5">
+                      <img
+                        src={service?.logo}
+                        className="left-2 bottom-2 relative"
+                      />
+                    </div>
+                    <h1 className="text-sm font-bold text-white mb-5">
+                      {service?.title}
+                    </h1>
+                    <p
+                      className="text-sm md:text-ss text-white"
+                      style={{ minHeight: 100 }}
+                    >
+                      {service?.desc}
+                    </p>
+                    <div className="mt-7 md:mt-4 flex mb-9 md:mb-6 items-center cursor-pointer">
+                      <h1 className="text-sm text-witech-link">
+                        {locale === "en" ? "Contact Us" : "Kontak"}
+                      </h1>
+                      <img className="ml-2.5" src="/img/arrow.png" />
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </Container>
         <Container>
-          <div className="flex justify-between pt-20">
+          <div className="flex justify-between pt-20 pb-13">
             <div className="w-1/2">
-              <h1 className="font-bold text-lg mb-7.5">Our Mission</h1>
+              <h1 className="font-bold text-lg mb-7.5">
+                {locale === "en" ? "Our Mission" : "Misi Kami"}
+              </h1>
               <div className="text-lg">
-                Our goal is to create systems for your product development and
-                to solve your business problems. We offer our services for small
-                to medium-sized companies that want to optimize their
-                performance. We ensure IT quality improvement of our companies
-                and local businesses client by giving an full effort of out
-                professional teams. We provide this effort to fully support
-                technology development in Indonesia. especially in Medan.
+                {locale === "en"
+                  ? "Our goal is to create systems for your product development and to solve your business problems. We offer our services for small to medium-sized companies that want to optimize their performance. We ensure IT quality improvement of our companies and local businesses client by giving an full effort of out professional teams. We provide this effort to fully support technology development in Indonesia. Especially in Medan."
+                  : "Tujuan kami adalah menciptakan sistem dalam pengembangan produk & memecahkan masalah bisnis Anda. Kami menawarkan layanan kami untuk perusahaan kecil hingga menengah. Kami memastikan kualitas IT perusahaan kami dengan memberikan upaya penuh dari tim profesional. Upaya ini kami lakukan untuk mendukung sepenuhnya perkembangan teknologi di Indonesia. Khususnya di Medan."}
               </div>
             </div>
             <div className="w-1/2">
@@ -140,9 +177,14 @@ const About = () => {
             </div>
           </div>
         </Container>
+        <hr className="h-3 bg-neutral-100 border-0" />
         <Container>
-          <div className="text-lg font-medium pt-20">
-            <h1 className="font-bold mb-7.5">Languages and Frameworks</h1>
+          <div className="font-medium pt-5">
+            <h1 className="font-bold text-lg mb-7.5">
+              {locale === "en"
+                ? "Languages and Frameworks"
+                : "Bahasa dan Kerangka Kerja"}
+            </h1>
             <div className="flex justify-between">
               <div className="w-1/4">
                 <ul>
@@ -178,7 +220,7 @@ const About = () => {
               <div className="w-1/4">
                 <ul>
                   <li className="pb-1">
-                    <h1 className="font-bold">Back End & Data</h1>
+                    <h1 className="font-bold">Front End</h1>
                   </li>
                   <li className="py-1">
                     <h1>HTML</h1>
@@ -242,7 +284,7 @@ const About = () => {
           </div>
         </Container>
         <Container>
-          <div className="font-bold flex items-center pt-20">
+          <div className="font-bold flex items-center pt-5">
             <div className="w-1/3">
               <img
                 src="/img/interested-about.png"
@@ -257,10 +299,16 @@ const About = () => {
                   lineHeight: "80px",
                 }}
               >
-                Interested in digging deeper?
+                {locale === "en"
+                  ? "Interested in digging deeper?"
+                  : "Tertarik mengenal lebih dalam?"}
               </h1>
               <div className="flex items-center mt-5">
-                <h1 className="text-2xl">Discuss with us</h1>
+                <h1 className="text-2xl">
+                  {locale === "en"
+                    ? "Discuss with us"
+                    : "Diskusikan dengan kami"}
+                </h1>
                 <div
                   className="flex justify-center items-center ml-7 bg-witech-link rounded-full"
                   style={{ width: "50px", height: "50px" }}

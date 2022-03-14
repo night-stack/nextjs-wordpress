@@ -93,6 +93,10 @@ button {
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
 }
+.btn-primary:hover {
+  background-color: #fff !important;
+  color: #05103A;
+}
 .btn-secondary {
   background: transparent;
   color: #67f8ef;
@@ -109,6 +113,10 @@ button {
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
+}
+.btn-secondary:hover {
+  background-color: #67f8ef;
+  color: #061a64;
 }
 .btn-chat {
   width: 60px;

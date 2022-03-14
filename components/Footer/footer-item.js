@@ -1,23 +1,22 @@
 import React from "react";
+import Link from "next/link";
 
-export default function FooterItem() {
+const FooterItem = ({ locale }) => {
   return (
     <div className="flex text-sm font-bold items-center mt-28 mb-12">
       <h1>Copyright © 2021, Witech Enterprise</h1>
       <div className="flex ml-13">
-        <a
-          target="_blank"
-          href="https://witech.co.id/about-us/"
-          className="px-2 hover:text-gray-700"
-        >
-          About Us
-        </a>
+        <Link href="about" locale={locale}>
+          <a className="px-2 hover:text-gray-700">
+            {locale === "en" ? "About Us" : "Tentang Kami"}
+          </a>
+        </Link>
         <a
           target="_blank"
           href="https://witech.co.id/terms-conditions/"
           className="px-2 hover:text-gray-700"
         >
-          Terms & Conditions
+          {locale === "en" ? "Terms & Conditions" : "Syarat & Ketentuan"}
         </a>
         <a
           target="_blank"
@@ -53,4 +52,6 @@ export default function FooterItem() {
       </div>
     </div>
   );
-}
+};
+
+export default FooterItem;

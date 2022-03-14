@@ -1,6 +1,11 @@
+import React from "react";
 import FooterItem from "./footer-item";
 
+import { useRouter } from "next/router";
+
 export default function Footer() {
+  const { locale } = useRouter();
+
   return (
     <>
       <div className="flex font-bold my-20">
@@ -20,7 +25,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-1/4 text-lg">
-          <h1>Contact</h1>
+          <h1>{locale === "en" ? "Contact" : "Kontak"}</h1>
           <div className="flex items-center py-3">
             <div className="img-contact-footer">
               <svg
@@ -61,7 +66,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-1/4 text-lg">
-          <h1 className="pb-3">Location</h1>
+          <h1 className="pb-3">{locale === "en" ? "Location" : "Lokasi"}</h1>
           <h1>
             Jl. Multatuli No. 8A Hamdan, Medan, Sumatera Utara 20212, Indonesia
           </h1>
@@ -71,7 +76,7 @@ export default function Footer() {
           <h1 className="text-sm mt-2">Partner</h1>
         </div>
       </div>
-      <FooterItem />
+      <FooterItem locale={locale} />
     </>
   );
 }
