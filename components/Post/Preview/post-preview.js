@@ -69,7 +69,7 @@ export default function PostPreview({
                 height={120}
                 alt={`Cover Image for ${title}`}
                 src={coverImage?.sourceUrl}
-                className="bg-cover hover:shadow-medium transition-shadow duration-200"
+                className="object-cover hover:shadow-medium transition-shadow duration-200"
               />
             </div>
           )}

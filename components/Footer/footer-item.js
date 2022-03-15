@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import moment from "moment";
 
 const FooterItem = ({ locale }) => {
   return (
     <div className="flex text-sm font-bold items-center mt-28 mb-12">
-      <h1>Copyright © 2021, Witech Enterprise</h1>
+      <h1>Copyright © {moment().year()}, Witech Enterprise</h1>
       <div className="flex ml-13">
         <Link href="about" locale={locale}>
           <a className="px-2 hover:text-gray-700">

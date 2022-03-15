@@ -97,7 +97,7 @@ const About = () => {
                     : "Kami adalah perusahaan software house dan agensi desain berbasis di Medan, Sumatera Utara"}
                 </h1>
               </div>
-              <div className="pt-5">
+              <div className="pt-5 max-w-xl">
                 <h1 className="text-white text-lg font-normal">
                   {locale === "en"
                     ? "We ensure quality and privacy in our work. We have professional teams with experience and expertise in application development. Our team consists of various devisions and can develop with many frameworks."
@@ -127,8 +127,8 @@ const About = () => {
                 .map((service, index) => (
                   <div
                     key={index}
-                    className="bg-witech-dark-blue w-1/4 mx-2.5 p-5"
-                    style={{ minHeight: 360 }}
+                    className="bg-witech-dark-blue w-1/4 mx-2.5 p-5 justify-center flex flex-col"
+                    // style={{ minHeight: 360 }}
                   >
                     <div className="img-wrapper mt-7 mb-5">
                       <img
@@ -140,17 +140,17 @@ const About = () => {
                       {service?.title}
                     </h1>
                     <p
-                      className="text-sm md:text-ss text-white"
+                      className="text-sm md:text-ss text-white mb-7"
                       style={{ minHeight: 100 }}
                     >
                       {service?.desc}
                     </p>
-                    <div className="mt-7 md:mt-4 flex mb-9 md:mb-6 items-center cursor-pointer">
+                    {/* <div className="mt-7 md:mt-4 flex mb-9 md:mb-6 items-center cursor-pointer">
                       <h1 className="text-sm text-witech-link">
                         {locale === "en" ? "Contact Us" : "Kontak"}
                       </h1>
                       <img className="ml-2.5" src="/img/arrow.png" />
-                    </div>
+                    </div> */}
                   </div>
                 ))}
             </div>

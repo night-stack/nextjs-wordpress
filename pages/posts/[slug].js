@@ -47,8 +47,8 @@ export default function Post({ post, posts, preview }) {
                   content={post.featuredImage?.node?.sourceUrl}
                 />
               </Head>
-              <div className="flex">
-                <div className="w-2/3 px-10">
+              <div className="flex mx-auto ml-16">
+                <div className="w-2/3 px-10 mx-auto">
                   <PostHeader
                     title={post.title}
                     coverImage={post.featuredImage?.node}
@@ -63,7 +63,7 @@ export default function Post({ post, posts, preview }) {
 
                   {morePosts.length > 0 && <MoreStories posts={morePosts} />}
                 </div>
-                <div className="w-1/3 px-10" />
+                {/* <div className="w-1/3 px-10" /> */}
               </div>
             </article>
           </>

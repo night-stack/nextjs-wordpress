@@ -7,6 +7,7 @@ export default function Image({ title, coverImage, slug }) {
     <img
       alt={`img-${slug}`}
       src={coverImage?.sourceUrl}
+      className="object-cover"
       style={{
         width: "100%",
         height: 281,

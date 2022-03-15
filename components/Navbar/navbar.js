@@ -32,7 +32,7 @@ const Navbar = () => {
             </li>
             <li className="nav-link">
               <Link href="#services" locale={locale}>
-                <a h className="px-4">
+                <a className="px-4">
                   {locale === "en" ? "Services" : "Layanan"}
                 </a>
               </Link>
@@ -82,7 +82,7 @@ const Navbar = () => {
                 <ul className="font-normal uppercase text-center">
                   {locales.map((l, i) => (
                     <li key={i}>
-                      <Link href={asPath} locale={l}>
+                      <Link href={`${asPath}`} locale={l}>
                         <a
                           onClick={() => setShowLang(false)}
                           className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"

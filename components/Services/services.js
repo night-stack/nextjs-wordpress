@@ -90,8 +90,8 @@ const Services = () => {
           .map((service, index) => (
             <div
               key={index}
-              className="bg-witech-dark-blue w-1/4 mx-2.5 p-5"
-              style={{ minHeight: 360 }}
+              className="bg-witech-dark-blue w-1/4 mx-2.5 p-5 justify-center flex flex-col"
+              // style={{ minHeight: 360 }}
             >
               <div className="img-wrapper mt-7 mb-5">
                 <img src={service?.logo} className="left-2 bottom-2 relative" />
@@ -100,17 +100,17 @@ const Services = () => {
                 {service?.title}
               </h1>
               <p
-                className="text-sm md:text-ss text-white"
+                className="text-sm md:text-ss text-white mb-7"
                 style={{ minHeight: 100 }}
               >
                 {service?.desc}
               </p>
-              <div className="mt-7 md:mt-4 flex mb-9 md:mb-6 items-center cursor-pointer">
+              {/* <div className="mt-7 md:mt-4 flex mb-9 md:mb-6 items-center cursor-pointer">
                 <h1 className="text-sm text-witech-link">
                   {locale === "en" ? "Contact Us" : "Kontak"}
                 </h1>
                 <img className="ml-2.5" src="/img/arrow.png" />
-              </div>
+              </div> */}
             </div>
           ))}
       </div>
