@@ -31,6 +31,7 @@ body {
   display: -webkit-box !important;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  white-space: normal!important;
 }
 
 a.active::before {
@@ -43,6 +44,19 @@ a.active::before {
   width: 5px;
   margin-right: 10px;
   background-color: #67f8ef;
+}
+
+.more-post .date::before {
+  display: inline-block;
+  content: "";
+  margin-bottom: 2.6px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  height: 3px;
+  width: 3px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #9ca3af;
 }
 
 li.nav-link:first-child a {
@@ -228,6 +242,32 @@ button {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+}
+
+.tooltip {
+  transition: ease-in .3s;
+  display: inline-block;
+  position: absolute;
+  z-index: 10;
+  padding-top: .4rem;
+  padding-bottom: .4rem; 
+  padding-left: .75rem;
+  padding-right: .75rem; 
+  font-weight: 500; 
+  color: #fff; 
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  opacity: 1;
+  border-top-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+.tooltip-arrow::before {
+  content: "";
+  transform: rotate(45deg);
+  position: absolute;
+  display: block;
+  background: inherit;
+  height: 8px;
+  width: 8px;
 }
 
 @keyframes slide {

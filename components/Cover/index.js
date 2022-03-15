@@ -21,7 +21,7 @@ export default function CoverImage({ title, coverImage, slug }) {
           <a aria-label={title}>{image}</a>
         </Link>
       ) : (
-        image
+        coverImage && image
       )}
     </div>
   );

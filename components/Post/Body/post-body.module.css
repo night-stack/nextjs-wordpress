@@ -1,5 +1,5 @@
 .content {
-  @apply text-lg leading-relaxed;
+  @apply text-base leading-relaxed;
 }
 
 .content p,

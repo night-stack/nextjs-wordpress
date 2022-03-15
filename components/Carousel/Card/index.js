@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "./Image";
 import moment from "moment";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Card = ({
   title,
@@ -11,6 +13,8 @@ const Card = ({
   slug,
   categories,
 }) => {
+  const { locale } = useRouter();
+
   return (
     <div className="px-2.5">
       <div className="card-header mb-5">
@@ -21,13 +25,10 @@ const Card = ({
           {moment(date).format("MMM DD, YYYY")}{" "}
           <span className="category">{categories.name}</span>
         </div>
-        <div
-          className="mb-5 text-lg font-bold w-full truncate"
-          style={{
-            whiteSpace: "normal",
-          }}
-        >
-          {title}
+        <div className="mb-5 text-lg font-bold w-full truncate">
+          <Link href={`/posts/${slug}`} locale={locale}>
+            <a className="hover:underline">{title}</a>
+          </Link>
         </div>
       </div>
       <div className="card-footer" />
