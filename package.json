@@ -12,6 +12,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-ig-feed": "^1.0.4",
+    "react-loader-spinner": "^6.0.0-0",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1"
   },
