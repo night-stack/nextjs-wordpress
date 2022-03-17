@@ -23,9 +23,7 @@ const Blogs = ({ allPosts: { edges }, preview }) => {
     setLoading(true);
     const response = await fetch(
       `https://witech.co.id/wp-json/wp/v2/posts?page=${page}&per_page=9`,
-      {
-        method: "GET",
-      }
+      {}
     );
 
     if (response) {
@@ -42,9 +40,7 @@ const Blogs = ({ allPosts: { edges }, preview }) => {
           const linkMedia = v._links["wp:featuredmedia"];
           if (linkCat) {
             // console.log(linArr[0]);
-            const reqCat = await fetch(linkCat[0]?.href, {
-              method: "GET",
-            });
+            const reqCat = await fetch(linkCat[0]?.href, {});
             if (reqCat) {
               reqCat.json().then((res) => {
                 arr[i].category = res[0]?.name;
@@ -53,9 +49,7 @@ const Blogs = ({ allPosts: { edges }, preview }) => {
           }
           if (linkMedia) {
             // console.log(linArr[0]);
-            const reqMedia = await fetch(linkMedia[0]?.href, {
-              method: "GET",
-            });
+            const reqMedia = await fetch(linkMedia[0]?.href, {});
             if (reqMedia) {
               reqMedia.json().then((res) => {
                 arr[i].source_url = res?.source_url;
