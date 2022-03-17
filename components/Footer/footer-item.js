@@ -7,7 +7,7 @@ const FooterItem = ({ locale }) => {
     <div className="flex text-sm font-bold items-center mt-28 mb-12">
       <h1>Copyright © {moment().year()}, Witech Enterprise</h1>
       <div className="flex ml-13">
-        <Link href="about" locale={locale}>
+        <Link href="/about" locale={locale}>
           <a className="px-2 hover:text-gray-700">
             {locale === "en" ? "About Us" : "Tentang Kami"}
           </a>

@@ -34,7 +34,7 @@ body {
   white-space: normal!important;
 }
 
-a.active::before {
+.nav-link a.active::before {
   display: inline-block;
   content: "";
   margin-bottom: 2.5px;
@@ -63,7 +63,11 @@ li.nav-link:first-child a {
   margin-left: 9px;
 }
 
-nav {
+.lang-group:hover {
+  display: block;
+}
+
+nav#navbar {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 

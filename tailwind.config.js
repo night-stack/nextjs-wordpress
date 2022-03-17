@@ -3,6 +3,11 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  variants: {
+    extend: {
+      display: ["group-hover"],
+    },
+  },
   theme: {
     extend: {
       colors: {
@@ -15,13 +20,17 @@ module.exports = {
         "witech-blue": "#061A64",
         "witech-link": "#67F8EF",
         "hero-dots": "#293461",
+        pagination: "#F9F9F9",
       },
       spacing: {
+        6.5: "25px",
         7.5: "30px",
+        9.5: "37px",
         13: "50px",
         25: "100px",
         28: "7rem",
         35: "150px",
+        35.5: "140px",
         63: "250px",
         md: "8.6%",
         "md-menu": "8.81%",

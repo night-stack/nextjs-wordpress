@@ -102,7 +102,7 @@ export default function Header() {
             </span>
           </a>
         </Link>
-        <Link href="about" locale={locale}>
+        <Link href="/about" locale={locale}>
           <a className="my-4 group flex items-center">
             <svg
               className="h-8 w-8"

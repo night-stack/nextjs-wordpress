@@ -3,13 +3,14 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 const Navbar = () => {
-  const { locale, locales, router, asPath } = useRouter();
-  const [show, setShow] = useState(false);
-  const [showLang, setShowLang] = useState(false);
+  const { locale, locales, route, asPath } = useRouter();
 
   return (
     <>
-      <nav className="bg-witech-dark-blue text-white text-sm font-bold">
+      <nav
+        id="navbar"
+        className="bg-witech-dark-blue text-white text-sm font-bold"
+      >
         <div className="flex items-center py-4 container mx-auto px-25">
           <Link href="/" locale={locale}>
             <a>
@@ -20,7 +21,7 @@ const Navbar = () => {
           <ul className="flex ml-5">
             <li className="nav-link">
               <Link href="/" locale={locale}>
-                <a className={router?.route === "/" ? "px-4 active" : "px-4"}>
+                <a className={route === "/" ? "px-4 active" : "px-4"}>
                   {locale === "en" ? "Home" : "Beranda"}
                 </a>
               </Link>
@@ -38,23 +39,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-link">
-              <Link href="about" locale={locale}>
-                <a
-                  className={
-                    router?.route === "/about" ? "px-4 active" : "px-4"
-                  }
-                >
+              <Link href="/about" locale={locale}>
+                <a className={route === "/about" ? "px-4 active" : "px-4"}>
                   {locale === "en" ? "About" : "Tentang"}
                 </a>
               </Link>
             </li>
             <li className="nav-link">
-              <Link href="#" locale={locale}>
-                <a
-                  className={
-                    router?.route === "/blogs" ? "px-4 active" : "px-4"
-                  }
-                >
+              <Link href="/blogs" locale={locale}>
+                <a className={route === "/blogs" ? "px-4 active" : "px-4"}>
                   {locale === "en" ? "Blogs" : "Artikel"}
                 </a>
               </Link>
@@ -62,31 +55,19 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center justify-between ml-auto">
-            <div className="flex flex-col items-center">
-              <div className="flex cursor-pointer">
+            <div className="flex flex-col items-center group">
+              <div className="flex cursor-pointer items-center">
                 <div className="w-6 h-6">
                   <img src="/img/globe.png" />
                 </div>
-                <span
-                  className="px-2 capitalize"
-                  onClick={() => setShowLang(!showLang)}
-                >
-                  {locale}
-                </span>
+                <span className="px-2 capitalize">{locale}</span>
               </div>
-              <div
-                className={`${
-                  showLang ? "block" : "hidden"
-                } z-10 w-auto text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute mt-8 right-lang-lg md:right-lang-md`}
-              >
+              <div className="z-10 hidden w-auto text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute mt-6.5 right-lang-lg md:right-lang-md group-hover:block">
                 <ul className="font-normal uppercase text-center">
                   {locales.map((l, i) => (
                     <li key={i}>
                       <Link href={`${asPath}`} locale={l}>
-                        <a
-                          onClick={() => setShowLang(false)}
-                          className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
-                        >
+                        <a className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
                           {l}
                         </a>
                       </Link>
@@ -99,11 +80,10 @@ const Navbar = () => {
               className="ml-8 items-center flex text-witech-dark-blue bg-witech-link justify-center"
               style={{ minWidth: "140px", height: "45px" }}
             >
-              <div className="flex w-full">
+              <div className="flex w-full group">
                 <button
                   type="button"
                   className="flex justify-between items-center py-2 px-7 w-full font-bold border-0 outline-none text-sm"
-                  onClick={() => setShow(!show)}
                 >
                   {locale === "en" ? "Contact" : "Kontak"}
                   <svg
@@ -120,11 +100,7 @@ const Navbar = () => {
                   </svg>
                 </button>
 
-                <div
-                  className={`${
-                    show ? "block" : "hidden"
-                  } z-10 w-44 text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute mt-12 right-lg md:right-md-menu`}
-                >
+                <div className="z-10 hidden w-35.5 text-base list-none bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute mt-9.5 right-lg md:right-md-menu group-hover:block">
                   <ul className="font-normal">
                     <li>
                       <a
