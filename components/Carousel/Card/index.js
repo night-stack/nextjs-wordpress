@@ -22,7 +22,7 @@ const Card = ({
       </div>
       <div className="card-body">
         <div className="mb-2.5 text-sm font-medium w-full">
-          {moment(date).format("MMM DD, YYYY")}{" "}
+          {moment(date).format("MMM DD, YYYY")}
           <span className="category">{categories.name}</span>
         </div>
         <div className="mb-5 text-lg font-bold w-full truncate">

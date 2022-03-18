@@ -6,16 +6,16 @@ const Pagination = () => {
       <nav className="flex text-black">
         <button
           type="button"
-          className="flex items-center justify-center w-13 h-13 mx-1 bg-pagination text-xs hover:bg-gray-50"
+          className="flex items-center justify-center w-13 h-13 mx-1 bg-pagination text-xs hover:bg-witech-blue group"
         >
           <span className="sr-only">Previous</span>
 
           <svg
-            className="h-4 w-4 fill-black"
+            className="h-4 w-4 fill-black group-hover:fill-white"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            ariaHidden="true"
+            aria-hidden="true"
           >
             <path
               fillRule="evenodd"
@@ -28,30 +28,30 @@ const Pagination = () => {
         <button className="bg-witech-blue text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
           1
         </button>
-        <button className="bg-pagination hover:bg-gray-50 flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
+        <button className="bg-pagination hover:bg-witech-blue hover:text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
           2
         </button>
-        <button className="bg-pagination hover:bg-gray-50 flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
+        <button className="bg-pagination hover:bg-witech-blue hover:text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
           3
         </button>
-        <button className="bg-pagination hover:bg-gray-50 flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
+        <button className="bg-pagination hover:bg-witech-blue hover:text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
           4
         </button>
         <span className="relative inline-flex items-center justify-center w-13 h-13 bg-pagination text-xs mx-1 font-semibold">
           ...
         </span>
-        <button className="bg-pagination hover:bg-gray-50 flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
+        <button className="bg-pagination hover:bg-witech-blue hover:text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
           52
         </button>
-        <button className="flex items-center justify-center w-13 h-13 bg-pagination text-xs hover:bg-gray-50 mx-1 font-semibold">
+        <button className="flex items-center justify-center w-13 h-13 bg-pagination text-xs hover:bg-witech-blue mx-1 font-semibold group">
           <span className="sr-only">Next</span>
 
           <svg
-            className="h-4 w-4 fill-black"
+            className="h-4 w-4 fill-black group-hover:fill-white"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            ariaHidden="true"
+            aria-hidden="true"
           >
             <path
               fillRule="evenodd"
