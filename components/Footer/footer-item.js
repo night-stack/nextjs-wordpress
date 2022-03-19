@@ -8,28 +8,28 @@ const FooterItem = ({ locale }) => {
       <h1>Copyright © {moment().year()}, Witech Enterprise</h1>
       <div className="flex ml-13">
         <Link href="/about" locale={locale}>
-          <a className="px-2 hover:text-gray-700">
+          <a className="px-2 hover:underline">
             {locale === "en" ? "About Us" : "Tentang Kami"}
           </a>
         </Link>
         <a
           target="_blank"
           href="https://witech.co.id/terms-conditions/"
-          className="px-2 hover:text-gray-700"
+          className="px-2 hover:underline"
         >
           {locale === "en" ? "Terms & Conditions" : "Syarat & Ketentuan"}
         </a>
         <a
           target="_blank"
           href="https://witech.co.id/privacy-policy/"
-          className="px-2 hover:text-gray-700"
+          className="px-2 hover:underline"
         >
           Privacy Policy
         </a>
         <a
           target="_blank"
           href="https://witech.co.id/disclaimer/"
-          className="px-2 hover:text-gray-700"
+          className="px-2 hover:underline"
         >
           Disclimer
         </a>

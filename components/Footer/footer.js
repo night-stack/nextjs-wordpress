@@ -30,11 +30,11 @@ export default function Footer() {
             <div className="img-contact-footer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-6 w-"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth={1.7}
               >
                 <path
                   strokeLinecap="round"
@@ -43,7 +43,7 @@ export default function Footer() {
                 />
               </svg>
             </div>
-            <h1 className="pl-4">(021) - 11234567</h1>
+            <h1 className="pl-4 font-normal">(021) - 11234567</h1>
           </div>
           <div className="flex items-center py-1">
             <div className="img-contact-footer">
@@ -53,7 +53,7 @@ export default function Footer() {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth={1.7}
               >
                 <path
                   strokeLinecap="round"
@@ -62,12 +62,12 @@ export default function Footer() {
                 />
               </svg>
             </div>
-            <h1 className="pl-4">halo@witech.co.id</h1>
+            <h1 className="pl-4 font-normal">halo@witech.co.id</h1>
           </div>
         </div>
         <div className="w-1/4 text-lg">
           <h1 className="pb-3">{locale === "en" ? "Location" : "Lokasi"}</h1>
-          <h1>
+          <h1 className="font-normal">
             Jl. Multatuli No. 8A Hamdan, Medan, Sumatera Utara 20212, Indonesia
           </h1>
         </div>

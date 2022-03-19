@@ -4,18 +4,18 @@ import Layout from "~/components/Layout/layout";
 import Container from "~/components/Container/container";
 import Navbar from "~/components/Navbar/navbar";
 import Footer from "~/components/Footer/footer";
-import { getAllPostsForHome } from "~/lib/api";
+import { getAllPostsForHome, getPostsForBlogs } from "~/lib/api";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import moment from "moment";
 import { InfinitySpin } from "react-loader-spinner";
 import Pagination from "~/components/Pagination";
 
-const Blogs = ({ allPosts: { edges }, preview }) => {
-  const posts = edges;
+const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
+  // const posts = edges;
   const { locale } = useRouter();
-  const [data, setData] = React.useState([]);
-  const [page, setPage] = React.useState(1);
+  const [posts, setPosts] = React.useState([]);
+  const [page, setPage] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const [totalPage, setTotalPage] = React.useState(1);
 
@@ -67,10 +67,36 @@ const Blogs = ({ allPosts: { edges }, preview }) => {
 
   React.useEffect(() => {
     setLoading(true);
+    if (edges) {
+      setPosts(edges);
+    }
+    if (pageInfo) {
+      setPage(pageInfo);
+    }
     setTimeout(() => {
       setLoading(false);
     }, 3000);
-  }, []);
+  }, [edges, pageInfo]);
+
+  const handleNext = async (next) => {
+    setLoading(true);
+    const res = await getPostsForBlogs(preview, next, "");
+    if (res) {
+      setPage(res?.pageInfo);
+      setPosts(res?.edges);
+      setLoading(false);
+    }
+  };
+
+  const handlePrev = async (before) => {
+    setLoading(true);
+    const res = await getPostsForBlogs(preview, "", before);
+    if (res) {
+      setPage(res?.pageInfo);
+      setPosts(res?.edges);
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -138,7 +164,9 @@ const Blogs = ({ allPosts: { edges }, preview }) => {
                     <div className="card-body">
                       <div className="mb-2.5 text-sm font-medium w-full">
                         {moment(node?.date).format("MMM DD, YYYY")}
-                        <span className="category">{categories?.name}</span>
+                        <span className="category cursor-pointer hover:underline">
+                          {categories?.name}
+                        </span>
                       </div>
                       <div className="mb-5 text-lg font-bold w-full truncate">
                         <Link href={`/posts/${node?.slug}`} locale={locale}>
@@ -163,7 +191,10 @@ const Blogs = ({ allPosts: { edges }, preview }) => {
                   Next
                 </button>
               </div>
-              <Pagination />
+              <Pagination
+                handleNext={() => handleNext(page?.endCursor)}
+                handlePrev={() => handlePrev(page?.endCursor)}
+              />
             </div>
           </Container>
         )}
@@ -177,9 +208,14 @@ const Blogs = ({ allPosts: { edges }, preview }) => {
 
 export default Blogs;
 
-export async function getStaticProps({ preview = false }) {
+export async function getStaticProps({
+  preview = false,
+  next = "",
+  before = "",
+}) {
   const allPosts = await getAllPostsForHome(preview);
+  const getPosts = await getPostsForBlogs(preview, next, before);
   return {
-    props: { allPosts, preview },
+    props: { allPosts, preview, next, getPosts },
   };
 }

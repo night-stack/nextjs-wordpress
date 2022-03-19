@@ -1,10 +1,11 @@
 import React from "react";
 
-const Pagination = () => {
+const Pagination = ({ handleNext, handlePrev }) => {
   return (
     <>
       <nav className="flex text-black">
         <button
+          onClick={handlePrev}
           type="button"
           className="flex items-center justify-center w-13 h-13 mx-1 bg-pagination text-xs hover:bg-witech-blue group"
         >
@@ -25,7 +26,7 @@ const Pagination = () => {
           </svg>
         </button>
 
-        <button className="bg-witech-blue text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
+        {/* <button className="bg-witech-blue text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
           1
         </button>
         <button className="bg-pagination hover:bg-witech-blue hover:text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
@@ -42,8 +43,12 @@ const Pagination = () => {
         </span>
         <button className="bg-pagination hover:bg-witech-blue hover:text-white flex items-center justify-center w-13 h-13 text-xs mx-1 font-semibold">
           52
-        </button>
-        <button className="flex items-center justify-center w-13 h-13 bg-pagination text-xs hover:bg-witech-blue mx-1 font-semibold group">
+        </button> */}
+        <button
+          type="button"
+          className="flex items-center justify-center w-13 h-13 bg-pagination text-xs hover:bg-witech-blue mx-1 font-semibold group"
+          onClick={handleNext}
+        >
           <span className="sr-only">Next</span>
 
           <svg
