@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+
+function useOutsideAlerter(ref, handle) {
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        handle(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
+}
 
 const DropdownLink = ({ title, datas }) => {
   const [show, setShow] = useState(false);
+  const wrapperRef = useRef(null);
+
+  useOutsideAlerter(wrapperRef, setShow);
 
   return (
-    <div className="flex">
+    <div className="flex sosmed-dropdown" ref={wrapperRef}>
       <button
         type="button"
         className="flex justify-between items-center py-2 w-full font-bold border-0 outline-none text-sm"

@@ -17,7 +17,7 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
   const [posts, setPosts] = React.useState([]);
   const [page, setPage] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
-  const [totalPage, setTotalPage] = React.useState(1);
+  const [currentPage, setCurrentPage] = React.useState(1);
 
   // React.useEffect(async () => {
   //   setLoading(true);
@@ -82,6 +82,7 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
     setLoading(true);
     const res = await getPostsForBlogs(preview, next, "");
     if (res) {
+      setCurrentPage(currentPage + 1);
       setPage(res?.pageInfo);
       setPosts(res?.edges);
       setLoading(false);
@@ -92,6 +93,7 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
     setLoading(true);
     const res = await getPostsForBlogs(preview, "", before);
     if (res) {
+      setCurrentPage(currentPage - 1);
       setPage(res?.pageInfo);
       setPosts(res?.edges);
       setLoading(false);
@@ -107,16 +109,22 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
           }`}</title>
         </Head>
         <Navbar />
-        <div className="bg-witech-dark-blue mx-auto text-center py-25 text-white">
+        <div
+          id="blog"
+          className="bg-witech-dark-blue mx-auto text-center py-25 text-white"
+        >
           <h1 className="font-semibold text-3.5xl leading-11 mb-5">Our Blog</h1>
           <p className="text-base font-medium">
             The latest industry interviews, technologies, and resources
           </p>
         </div>
         <Container>
-          <div className="flex justify-between items-center w-full flex-wrap">
+          <div
+            id="blog"
+            className="flex justify-between items-center w-full flex-wrap"
+          >
             {loading && (
-              <div className="w-full flex justify-center">
+              <div id="spinner" className="w-full flex justify-center">
                 <InfinitySpin color="#05103A" />
               </div>
             )}
@@ -127,10 +135,7 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
                 return (
                   <div
                     key={node?.id}
-                    className="px-2.5 w-1/3 pb-2.5"
-                    style={{
-                      minHeight: 417,
-                    }}
+                    className="px-2.5 w-full md:w-1/3 pb-2.5 min-h-[417px]"
                   >
                     <div className="card-header mb-5">
                       <div className="sm:mx-0">
@@ -182,18 +187,15 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
         </Container>
         {!loading && (
           <Container>
-            <div className="mt-10 pb-10 flex items-center justify-center">
-              <div className="flex-1 flex justify-between sm:hidden">
-                <button className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                  Previous
-                </button>
-                <button className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                  Next
-                </button>
-              </div>
+            <div
+              id="pagination"
+              className="mt-10 pb-10 flex items-center justify-center"
+            >
               <Pagination
+                posts={posts}
+                currentPage={currentPage}
                 handleNext={() => handleNext(page?.endCursor)}
-                handlePrev={() => handlePrev(page?.endCursor)}
+                handlePrev={() => handlePrev(page?.startCursor)}
               />
             </div>
           </Container>

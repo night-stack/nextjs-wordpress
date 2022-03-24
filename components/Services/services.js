@@ -1,9 +1,38 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Slider from "react-slick";
 
 const Services = () => {
   const { locale } = useRouter();
-
+  const settings = {
+    dots: false,
+    infinite: false,
+    autoplay: false,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2.1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2.1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   const services = [
     {
       locale: "en",
@@ -56,13 +85,9 @@ const Services = () => {
   ];
 
   return (
-    <div id="services">
+    <div id="services" className="container mx-auto mt-10 px-25">
       <div className="flex justify-between items-center">
-        <div
-          style={{
-            maxWidth: "672px",
-          }}
-        >
+        <div className="service-title">
           <h1 className="font-bold text-3.5xl text-witech-dark-blue leading-11">
             {locale === "en"
               ? "We build application that drive traffic,engagement, and conversion for industry-leading brands."
@@ -74,12 +99,13 @@ const Services = () => {
             className="relative"
             style={{ width: "289px", height: "285px", right: "62px" }}
             src="/img/asset1.png"
-          ></img>
+          />
+          <img className="w-full hidden" src="/img/asset1.png" />
         </div>
       </div>
 
       <div
-        className="mt-8 flex items-center justify-between"
+        className="mt-8 flex items-center justify-between services"
         style={{
           marginRight: "-10px",
           marginLeft: "-10px",
@@ -114,6 +140,32 @@ const Services = () => {
             </div>
           ))}
       </div>
+
+      <Slider
+        {...settings}
+        className="mobile-content"
+        style={{
+          width: "100%",
+        }}
+      >
+        {services
+          .filter((data) => data.locale === locale)
+          .map((data, index) => (
+            <div key={index} className="mt-5 card">
+              <div className="services-card bg-witech-dark-blue">
+                <div className="img-wrapper mt-8 mb-5">
+                  <img
+                    src={data?.logo}
+                    className="object-cover left-2 bottom-2 relative"
+                  />
+                </div>
+                <h1 className="text-sm font-bold text-white mb-8">
+                  {data?.title}
+                </h1>
+              </div>
+            </div>
+          ))}
+      </Slider>
     </div>
   );
 };

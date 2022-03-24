@@ -48,7 +48,7 @@ export default function Post({ post, posts, preview }) {
                 />
               </Head>
               <div className="flex mx-auto ml-16">
-                <div className="w-2/3 px-10 mx-auto">
+                <div className="w-2/3 px-10 mx-auto break-words">
                   <PostHeader
                     title={post.title}
                     coverImage={post.featuredImage?.node}

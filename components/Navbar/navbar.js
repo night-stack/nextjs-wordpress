@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import Drawer from "../Drawer";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 const Navbar = () => {
   const { locale, locales, route, asPath } = useRouter();
+  const [show, setShow] = useState(false);
 
   return (
     <>
+      <Drawer show={show} setShow={setShow} />
       <nav
         id="navbar"
         className="bg-witech-dark-blue text-white text-sm font-bold"
@@ -17,6 +20,27 @@ const Navbar = () => {
               <img src="/img/logo.png" className="h-12 w-12" />
             </a>
           </Link>
+          <button
+            type="button"
+            className="ml-auto hidden menu-button"
+            onClick={() => setShow(!show)}
+          >
+            <svg
+              className="stroke-white"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
 
           <ul className="flex ml-5">
             <li className="nav-link">
@@ -54,7 +78,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          <div className="flex items-center justify-between ml-auto">
+          <div className="flex items-center justify-between ml-auto navbar-contact">
             <div className="flex flex-col items-center group">
               <div className="flex cursor-pointer items-center">
                 <div className="w-6 h-6">

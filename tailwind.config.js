@@ -20,6 +20,7 @@ module.exports = {
         "witech-blue": "#061A64",
         "witech-link": "#67F8EF",
         "hero-dots": "#293461",
+        "hero-slider": "#445184",
         pagination: "#F9F9F9",
       },
       spacing: {

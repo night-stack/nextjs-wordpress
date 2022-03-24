@@ -2,10 +2,41 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import DropdownLink from "../DropdownLink";
 import FeedCard from "./FeedCard";
+import Slider from "react-slick";
 
 const InstagramFeed = ({ posts }) => {
   const { locale } = useRouter();
   const [filter, setFilter] = useState("All");
+  const settings = {
+    dots: false,
+    infinite: false,
+    autoplay: false,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 0,
+          slidesToScroll: 0,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2.1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1.1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const socials = [
     {
       name: "Witech Enterprise",
@@ -53,9 +84,9 @@ const InstagramFeed = ({ posts }) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-10">
+      <div className="flex justify-between items-center mb-10 sosmed">
         <div className="flex font-bold text-lg items-center">
-          Social Media Feed
+          <h1>Social Media Feed</h1>
           <ul className="flex ml-10 text-sm">
             <li
               onClick={() => setFilter("All")}
@@ -86,6 +117,16 @@ const InstagramFeed = ({ posts }) => {
         />
       </div>
       <FeedCard datas={dummyFeed} />
+
+      <div>
+        <Slider {...settings} className="mobile-content">
+          {dummyFeed.map((data, index) => (
+            <div key={index} className="card">
+              <img src={data?.feedImage} className="object-cover" />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };

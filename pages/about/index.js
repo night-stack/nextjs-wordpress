@@ -6,9 +6,39 @@ import Layout from "~/components/Layout/layout";
 import Chat from "~/components/Chat";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Slider from "react-slick";
 
 const About = () => {
   const { locale } = useRouter();
+  const settings = {
+    dots: false,
+    infinite: false,
+    autoplay: false,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2.1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2.1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   const services = [
     {
@@ -70,20 +100,16 @@ const About = () => {
           }`}</title>
         </Head>
         <Navbar />
-        <div className="bg-witech-dark-blue background-img-about mx-auto">
-          <div
-            className="font-bold flex items-center container mx-auto"
-            style={{
-              paddingLeft: 100,
-              paddingRight: 100,
-              minHeight: 690,
-            }}
-          >
-            <div className="w-1/2 mb-25">
+        <div
+          id="about"
+          className="bg-witech-dark-blue background-img-about mx-auto"
+        >
+          <div className="font-bold flex items-center container mx-auto px-25 about-headline">
+            <div className="w-1/2 mb-25 about">
               <div className="mb-7.5">
-                <h1 className="text-witech-link text-xl">
+                <p className="text-witech-link text-xl">
                   {locale === "en" ? "Let’s get acquainted" : "Mari berkenalan"}
-                </h1>
+                </p>
               </div>
               <div>
                 <h1
@@ -98,14 +124,14 @@ const About = () => {
                 </h1>
               </div>
               <div className="pt-5 max-w-xl">
-                <h1 className="text-white text-lg font-normal">
+                <h1 className="text-white text-lg font-normal subtitle">
                   {locale === "en"
                     ? "We ensure quality and privacy in our work. We have professional teams with experience and expertise in application development. Our team consists of various devisions and can develop with many frameworks."
                     : "Kami memastikan kualitas dan privasi dalam pekerjaan kami. Memiliki tim profesional dengan pengalaman & keahlian dalam pengembangan aplikasi. Tim kami terdiri dari berbagai divisi & dapat menggunakan banyak framework."}
                 </h1>
               </div>
             </div>
-            <div className="w-1/2"></div>
+            <div className="w-1/2 about"></div>
           </div>
         </div>
         <Container>
@@ -116,7 +142,7 @@ const About = () => {
           </div>
           <div>
             <div
-              className="flex items-center justify-between"
+              className="flex items-center justify-between services"
               style={{
                 marginRight: "-10px",
                 marginLeft: "-10px",
@@ -155,9 +181,34 @@ const About = () => {
                 ))}
             </div>
           </div>
+          <Slider
+            {...settings}
+            className="mobile-content"
+            style={{
+              width: "100%",
+            }}
+          >
+            {services
+              .filter((data) => data.locale === locale)
+              .map((data, index) => (
+                <div key={index} className="mt-5 card">
+                  <div className="services-card bg-witech-dark-blue">
+                    <div className="img-wrapper mt-8 mb-5">
+                      <img
+                        src={data?.logo}
+                        className="object-cover left-2 bottom-2 relative"
+                      />
+                    </div>
+                    <h1 className="text-sm font-bold text-white mb-8">
+                      {data?.title}
+                    </h1>
+                  </div>
+                </div>
+              ))}
+          </Slider>
         </Container>
         <Container>
-          <div className="flex justify-between pt-20 pb-13">
+          <div id="mission" className="flex justify-between pt-20 pb-13">
             <div className="w-1/2">
               <h1 className="font-bold text-lg mb-7.5">
                 {locale === "en" ? "Our Mission" : "Misi Kami"}
@@ -170,8 +221,7 @@ const About = () => {
             </div>
             <div className="w-1/2">
               <img
-                className="ml-auto w-full bg-cover"
-                style={{ maxWidth: "428px", height: "285px" }}
+                className="ml-auto w-full bg-cover object-cover max-w-[428px] h-[285px]"
                 src="/img/our-mission-about.png"
               />
             </div>
@@ -185,8 +235,8 @@ const About = () => {
                 ? "Languages and Frameworks"
                 : "Bahasa dan Kerangka Kerja"}
             </h1>
-            <div className="flex justify-between">
-              <div className="w-1/4">
+            <div className="flex flex-wrap justify-between">
+              <div className="w-1/2 md:w-1/4 mb-7.5">
                 <ul>
                   <li className="pb-1">
                     <h1 className="font-bold">Back End & Data</h1>
@@ -217,7 +267,7 @@ const About = () => {
                   </li>
                 </ul>
               </div>
-              <div className="w-1/4">
+              <div className="w-1/2 md:w-1/4">
                 <ul>
                   <li className="pb-1">
                     <h1 className="font-bold">Front End</h1>
@@ -248,7 +298,7 @@ const About = () => {
                   </li>
                 </ul>
               </div>
-              <div className="w-1/4">
+              <div className="w-1/2 md:w-1/4">
                 <ul>
                   <li className="pb-1">
                     <h1 className="font-bold">Mobile</h1>
@@ -267,7 +317,7 @@ const About = () => {
                   </li>
                 </ul>
               </div>
-              <div className="w-1/4">
+              <div className="w-1/2 md:w-1/4">
                 <ul>
                   <li className="pb-1">
                     <h1 className="font-bold">Cloud</h1>
@@ -284,37 +334,31 @@ const About = () => {
           </div>
         </Container>
         <Container>
-          <div className="font-bold flex items-center pt-5">
-            <div className="w-1/3">
+          <div
+            id="contact"
+            className="font-bold flex flex-wrap items-center pt-5"
+          >
+            <div className="w-full md:w-1/3">
               <img
                 src="/img/interested-about.png"
                 className="w-full h-full bg-cover"
               />
             </div>
-            <div className="w-2/3 px-10">
-              <h1
-                className="text-3.5xl"
-                style={{
-                  fontSize: 64,
-                  lineHeight: "80px",
-                }}
-              >
+            <div className="w-full md:w-2/3 px-10">
+              <h1 className="text-3.5xl subtitle">
                 {locale === "en"
                   ? "Interested in digging deeper?"
                   : "Tertarik mengenal lebih dalam?"}
               </h1>
-              <div className="flex items-center mt-5">
+              <div className="flex items-center mt-5 title">
                 <h1 className="text-2xl">
                   {locale === "en"
                     ? "Discuss with us"
                     : "Diskusikan dengan kami"}
                 </h1>
-                <div
-                  className="flex justify-center items-center ml-7 bg-witech-link rounded-full"
-                  style={{ width: "50px", height: "50px" }}
-                >
+                <div className="flex justify-center items-center ml-7 bg-witech-link rounded-full w-[50px] h-[50px]">
                   <a href="#">
-                    <img className="w-6 h-6" src="/svg/arrowleft.svg"></img>
+                    <img className="h-6" src="/svg/arrowleft.svg"></img>
                   </a>
                 </div>
               </div>

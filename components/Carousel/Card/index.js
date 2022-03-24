@@ -16,7 +16,7 @@ const Card = ({
   const { locale } = useRouter();
 
   return (
-    <div className="px-2.5">
+    <div className="px-2.5 card">
       <div className="card-header mb-5">
         <Image title={title} coverImage={coverImage} slug={slug} />
       </div>

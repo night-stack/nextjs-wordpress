@@ -11,25 +11,21 @@ const CustomDots = ({ data, onClick, activeSlide }) => {
   });
 
   useEffect(() => {
-    const play = () => {
-      scaleUpRef.current();
-    };
+    if (typeof window !== "undefined") {
+      if (window.innerWidth > 600) {
+        const play = () => {
+          scaleUpRef.current();
+        };
 
-    const interval = setInterval(play, 10);
+        const interval = setInterval(play, 10);
 
-    return () => {
-      clearInterval(interval);
-      hasAutoProgressBeenStopped();
-    };
-  }, [activeSlide]);
-
-  const progress = () => {
-    if (scale >= 100) {
-      setScale(1);
-    } else {
-      setScale((scale += 0.178));
+        return () => {
+          clearInterval(interval);
+          hasAutoProgressBeenStopped();
+        };
+      }
     }
-  };
+  }, [activeSlide]);
 
   const hasAutoProgressBeenStopped = (e) => {
     scaleUpRef.current = null;
@@ -44,7 +40,7 @@ const CustomDots = ({ data, onClick, activeSlide }) => {
 
   return (
     <div
-      className="w-full mx-auto flex justify-center"
+      className="w-full mx-auto flex justify-center headline-dots"
       style={{
         position: "relative",
         top: -55,

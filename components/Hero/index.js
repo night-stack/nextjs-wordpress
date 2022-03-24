@@ -3,6 +3,7 @@ import Image from "next/image";
 import Button from "components/Button";
 import { useRouter } from "next/router";
 import CustomDots from "./CustomDots";
+import Slider from "react-slick";
 
 const isBrowser = () => typeof window !== "undefined";
 
@@ -26,6 +27,45 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
   });
 
   const { activeSlide, translate, _slides, transition } = state;
+  const settings = {
+    customPaging: function (i) {
+      return (
+        <a>
+          <div className="h-1 bg-hero-slider" />
+        </a>
+      );
+    },
+    dots: true,
+    dotsClass: "slick-dots slick-thumb",
+    infinite: true,
+    autoplay: true,
+    arrows: false,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     setState((prevState) => ({
@@ -141,6 +181,44 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
         paddingTop: 70,
       }}
     >
+      <div className="container mx-auto pt-2 pl-6.5 pr-2.5">
+        <Slider {...settings} className="mobile-content">
+          {_slides.map((data, i) => (
+            <div key={data.id + i} className="card hero">
+              <div className="w-9/12 relative mr-2.5">
+                <div className="flex text-sm text-white font-bold items-center">
+                  <img
+                    src={data.image}
+                    alt={`logo-${data.id}`}
+                    className="mr-3"
+                    width={25}
+                    height={25}
+                  />
+                  {data.title}
+                </div>
+                <p className="z-10 mt-4 -mr-12 text-base font-bold text-white">
+                  {data.heroText}
+                </p>
+                <div className="flex flex-row mt-3.5">
+                  <div className="mr-2" style={{ width: 76 }}>
+                    <Button className="w-full">
+                      {locale === "en" ? "Pricing" : "Harga"}
+                    </Button>
+                  </div>
+                  <div style={{ width: 90 }}>
+                    <Button color="secondary" className="w-full">
+                      {locale === "en" ? "Learn More" : "Pelajari Lebih"}
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-witech-blue hero-image">
+                <img src={data?.heroImage} className="object-cover" />
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
       <div className="headline container mx-auto md:px-35">
         {_slides.map((_slide, i) => (
           <div
