@@ -466,6 +466,9 @@ button {
   .card-header img {
     height: 180px;
   }
+  .mobile-content .card h1 {
+    font-size: 12px!important;
+  }
   .card {
     padding-left: 5px!important;
     padding-right: 5px!important;
@@ -489,6 +492,7 @@ button {
   }
   .service-title {
     padding-right: 0;
+    max-width: 65%;
   }
   .img-wrapper-services {
     max-width: 120px!important;
@@ -581,7 +585,7 @@ button {
     height: 30px;
   }
   .btn-secondary {
-    font-size: 12px;
+    font-size: 11px;
     height: 30px;
     padding: 0 .5rem;
   }

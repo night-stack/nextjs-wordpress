@@ -159,7 +159,7 @@ const Services = () => {
                     className="object-cover left-2 bottom-2 relative"
                   />
                 </div>
-                <h1 className="text-sm font-bold text-white mb-8">
+                <h1 className="text-center text-sm font-bold text-white mb-8">
                   {data?.title}
                 </h1>
               </div>
