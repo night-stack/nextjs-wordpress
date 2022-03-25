@@ -7,7 +7,7 @@ import Categories from "../Categories/categories";
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
     <>
-      <div className="hidden md:block md:mb-12">
+      <div className="mb-8 md:mb-12">
         <Avatar author={author} date={date} />
       </div>
       <PostTitle>{title}</PostTitle>

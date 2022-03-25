@@ -22,10 +22,10 @@ export default function MoreStories({ posts }) {
           />
         ))}
       </div>
-      <div className="text-center w-full mb-14">
+      <div className="text-center w-full mb-9 md:mb-14">
         <button
           type="button"
-          className="bg-black px-12 py-3 rounded-full text-white text-sm font-semibold"
+          className="bg-black px-8 md:px-12 py-3 rounded-full text-white text-xs md:text-sm font-semibold"
         >
           Load More
         </button>

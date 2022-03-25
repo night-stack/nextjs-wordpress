@@ -6,6 +6,7 @@ export default function Header() {
 
   return (
     <nav
+      id="header-post"
       className="fixed py-8 min-h-screen border-r-2 border-neutral-100 top-0 flex flex-col"
       style={{
         width: "7%",

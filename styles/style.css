@@ -321,17 +321,6 @@ button {
 .slick-slide {
   overflow: hidden;
 }
-
-.tes {
-  
-  /* position: relative; */
-  /* position: absolute; */
-  position: fixed;
-  width: 200px;
-  top: 0;
-  /* right: 0; */
-  left: 20%;
-}
 .hero-image {
   border-top-left-radius: 49px;
   height: 176px;
@@ -355,12 +344,21 @@ button {
   z-index: 20;
   top: 0;
   right: 0;
+  opacity: 0;
+  transform: translateX(120%);
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
 }
+#backdrop.open {
+  transform: translateX(0);
+  opacity: 1;
+}
 #drawer {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
   width: 80%;
   height: 100%;
   background-color: #fff;
@@ -369,11 +367,16 @@ button {
   position: fixed;
   top: 0;
   left: 0;
+  transform: translateX(-120%);
   box-shadow: 1px 0px 7px rgba(0,0,0,0.5); 
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
+}
+#drawer.open {
+  transform: translateX(0);
+  opacity: 1;
 }
 /* body {
   overflow-y: hidden;
@@ -466,6 +469,11 @@ button {
   .card-header img {
     height: 180px;
   }
+  /* .mobile-content .card .services-card h1 {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 11px!important;
+  } */
   .mobile-content .card h1 {
     font-size: 12px!important;
   }
@@ -686,6 +694,21 @@ button {
   #pagination button {
     width: 40px!important;
     height: 40px!important;
+  }
+  #header-post {
+    display: none;
+  }
+  #post {
+    margin-left: 0!important;
+  }
+  .post-wrapper {
+    padding: 0!important;
+    width: 100%!important;
+  }
+  #post h1.text-3\.5xl {
+    font-size: 24px!important;
+    text-align: left!important;
+    line-height: 32px!important;
   }
 }
 

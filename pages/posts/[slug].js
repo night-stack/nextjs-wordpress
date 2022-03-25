@@ -1,4 +1,6 @@
+import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import ErrorPage from "next/error";
 import Container from "components/Container/container";
 import PostBody from "../../components/Post/Body/post-body";
@@ -12,9 +14,11 @@ import Head from "next/head";
 import { CMS_NAME } from "../../lib/constants";
 import Tags from "../../components/Post/Tags/tags";
 import Categories from "~/components/Post/Categories/categories";
+import Drawer from "~/components/Drawer";
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter();
+  const [show, setShow] = React.useState(false);
   const morePosts = posts?.edges;
 
   if (!router.isFallback && !post?.slug) {
@@ -23,8 +27,39 @@ export default function Post({ post, posts, preview }) {
 
   return (
     <Layout preview={preview}>
+      <Drawer show={show} setShow={setShow} />
+      <nav className="bg-witech-dark-blue text-white text-sm font-bold mobile-content">
+        <div className="flex items-center py-4 container mx-auto px-[25px]">
+          <Link href="/" locale={router?.locale}>
+            <a>
+              <img src="/img/logo.png" className="h-[35px]" />
+            </a>
+          </Link>
+          <button
+            type="button"
+            className="ml-auto menu-button"
+            onClick={() => setShow(!show)}
+          >
+            <svg
+              className="stroke-white"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
       <Header />
-      {router.isFallback ? null : (
+      {/* {router.isFallback ? null : (
         <div
           className="w-full"
           style={{
@@ -33,7 +68,7 @@ export default function Post({ post, posts, preview }) {
         >
           <Categories categories={post.categories} />
         </div>
-      )}
+      )} */}
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -47,8 +82,8 @@ export default function Post({ post, posts, preview }) {
                   content={post.featuredImage?.node?.sourceUrl}
                 />
               </Head>
-              <div className="flex mx-auto ml-16">
-                <div className="w-2/3 px-10 mx-auto break-words">
+              <div id="post" className="flex mx-auto ml-16">
+                <div className="w-2/3 px-10 mx-auto break-words post-wrapper">
                   <PostHeader
                     title={post.title}
                     coverImage={post.featuredImage?.node}

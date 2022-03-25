@@ -40,10 +40,10 @@ const Drawer = ({ show, setShow }) => {
       <div
         id="backdrop"
         onClick={() => setShow(false)}
-        className={show ? "block" : "hidden"}
+        className={show ? "open" : "close"}
       />
 
-      <nav id="drawer" className={show ? "block" : "hidden"}>
+      <nav id="drawer" className={show ? "open" : "close"}>
         <div className="flex items-center justify-between" ref={langRef}>
           <div
             className="flex cursor-pointer items-center"
@@ -63,7 +63,10 @@ const Drawer = ({ show, setShow }) => {
               {locales.map((l, i) => (
                 <li key={i}>
                   <Link href={`${asPath}`} locale={l}>
-                    <a className="block py-2 px-4 text-sm hover:bg-witech-blue dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                    <a
+                      onClick={outsideClick}
+                      className="block py-2 px-4 text-sm hover:bg-witech-blue dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                    >
                       {l}
                     </a>
                   </Link>
@@ -126,6 +129,7 @@ const Drawer = ({ show, setShow }) => {
                     target="_blank"
                     href="tel:02111234567"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                    onClick={outsideClick}
                   >
                     Phone Number
                   </a>
@@ -135,6 +139,7 @@ const Drawer = ({ show, setShow }) => {
                     target="_blank"
                     href="mailto:halo@witech.co.id"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                    onClick={outsideClick}
                   >
                     Email
                   </a>
@@ -144,6 +149,7 @@ const Drawer = ({ show, setShow }) => {
                     target="_blank"
                     href="https://api.whatsapp.com/send?phone=628116006700&text=Hi%20Witech%20Enterprise!%0AI%20want%20to%20discuss%20something."
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                    onClick={outsideClick}
                   >
                     Whatsapp
                   </a>
@@ -153,6 +159,7 @@ const Drawer = ({ show, setShow }) => {
                     target="_blank"
                     href="https://www.instagram.com/witechenterprise/"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                    onClick={outsideClick}
                   >
                     Instagram
                   </a>
@@ -162,6 +169,7 @@ const Drawer = ({ show, setShow }) => {
                     target="_blank"
                     href="https://www.facebook.com/witech.enterprise"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                    onClick={outsideClick}
                   >
                     Facebook
                   </a>
@@ -326,6 +334,40 @@ const Drawer = ({ show, setShow }) => {
             </Link>
           </li>
         </ul>
+
+        <div className="flex mt-auto">
+          <a target="_blank" href="https://www.instagram.com/witechenterprise/">
+            <img className="pr-3" src="/svg/instagram.svg" />
+          </a>
+          <a target="_blank" href="https://www.facebook.com/witech.enterprise">
+            <img className="pr-3" src="/svg/facebook.svg" />
+          </a>
+          <a target="_blank" href="https://twitter.com/witech_co">
+            <img className="pr-3" src="/svg/twitter.svg" />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/pt-witech-inovasi-indonesia/about/"
+          >
+            <img src="/svg/linkedin.svg" />
+          </a>
+        </div>
+        <div className="flex mt-5 text-[11px] font-bold">
+          <a
+            target="_blank"
+            href="https://witech.co.id/terms-conditions/"
+            className="pr-3 hover:underline"
+          >
+            {locale === "en" ? "Terms & Conditions" : "Syarat & Ketentuan"}
+          </a>
+          <a
+            target="_blank"
+            href="https://witech.co.id/privacy-policy/"
+            className="hover:underline"
+          >
+            Privacy Policy
+          </a>
+        </div>
       </nav>
     </div>
   );
