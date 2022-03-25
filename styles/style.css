@@ -701,6 +701,9 @@ button {
   #post {
     margin-left: 0!important;
   }
+  .more-post .date span {
+    font-size: 12px!important;
+  }
   .post-wrapper {
     padding: 0!important;
     width: 100%!important;
@@ -709,6 +712,22 @@ button {
     font-size: 24px!important;
     text-align: left!important;
     line-height: 32px!important;
+  }
+  #tags {
+    margin-top: 16px;
+    font-size: 8px!important;
+    font-weight: 700!important;
+  }
+  #tag-title {
+    font-size: 16px!important;
+    -webkit-line-clamp: 1;
+  }
+  #tag-desc {
+    margin-bottom: 0!important;
+    font-size: 12px!important;
+  }
+  #tag-img {
+    padding-left: 6px;
   }
 }
 

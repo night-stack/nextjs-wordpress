@@ -41,7 +41,11 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <h2 className="pl-4 font-normal">(021) - 11234567</h2>
+              <h2 className="pl-4 font-normal hover:underline">
+                <a target="_blank" href="tel:02111234567">
+                  (021) - 11234567
+                </a>
+              </h2>
             </div>
             <div className="flex items-center py-3">
               <div className="img-contact-footer">
@@ -60,14 +64,21 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <h2 className="pl-4 font-normal">halo@witech.co.id</h2>
+              <h2 className="pl-4 font-normal hover:underline">
+                <a target="_blank" href="mailto:halo@witech.co.id">
+                  halo@witech.co.id
+                </a>
+              </h2>
             </div>
           </div>
         </div>
         <div className="w-full md:w-1/4 text-lg">
           <h1 className="pb-3">{locale === "en" ? "Location" : "Lokasi"}</h1>
-          <h2 className="font-normal">
-            Jl. Multatuli No. 8A Hamdan, Medan, Sumatera Utara 20212, Indonesia
+          <h2 className="font-normal hover:underline">
+            <a target="_blank" href="https://goo.gl/maps/Lo2EC3dn74qeqde59">
+              Jl. Multatuli No. 8A Hamdan, Medan, Sumatera Utara 20212,
+              Indonesia
+            </a>
           </h2>
         </div>
         <div className="ml-auto">

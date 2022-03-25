@@ -12,13 +12,13 @@ export default function PostPreview({
   slug,
   tags,
 }) {
-  const tagsPreview = tags.slice(0, 3);
+  const tagsPreview = tags.slice(0, 2);
 
   return (
     <div className="flex flex-col border-b border-neutral-200 mb-8">
       <div className="flex mb-4">
         <div className="flex items-center">
-          <div className="w-6 h-6 relative mr-3">
+          <div className="w-5 h-5 md:w-6 md:h-6 relative mr-3">
             <Image
               src="/img/logo-witech-footer.png"
               layout="fill"
@@ -26,7 +26,7 @@ export default function PostPreview({
               alt={author?.name}
             />
           </div>
-          <div className="more-post text-sm flex">
+          <div className="more-post text-xs md:text-sm flex items-center">
             Witech Enterprise
             <span className="text-gray-400 date font-medium">
               <Date dateString={date} />
@@ -36,7 +36,10 @@ export default function PostPreview({
       </div>
       <div className="mb-8 flex">
         <div className="w-2/3">
-          <h3 className="text-2xl mb-3 leading-snug font-bold truncate text-gray-700">
+          <h3
+            id="tag-title"
+            className="text-2xl mb-3 leading-snug font-bold truncate text-gray-700"
+          >
             <Link href={`/posts/${slug}`}>
               <a
                 className="hover:underline"
@@ -45,6 +48,7 @@ export default function PostPreview({
             </Link>
           </h3>
           <div
+            id="tag-desc"
             className="text-sm leading-relaxed mb-4 truncate"
             dangerouslySetInnerHTML={{ __html: excerpt }}
           />
@@ -52,6 +56,7 @@ export default function PostPreview({
             <div className="text-sm text-gray-700 w-full flex flex-wrap">
               {tagsPreview.map((tag, index) => (
                 <span
+                  id="tags"
                   key={index}
                   className="mr-4 font-medium text-xs rounded-full bg-neutral-100 px-4 py-1 cursor-pointer"
                 >
@@ -61,7 +66,7 @@ export default function PostPreview({
             </div>
           )}
         </div>
-        <div className="w-1/3 items-center flex justify-end">
+        <div id="tag-img" className="w-1/3 items-center flex justify-end">
           {coverImage && (
             <div className="sm:mx-0">
               <Image
