@@ -14,7 +14,9 @@ export default function Image({ title, coverImage, slug }) {
     <div className="sm:mx-0">
       {slug ? (
         <Link href={`/posts/${slug}`} locale={locale}>
-          <a aria-label={title}>{image}</a>
+          <a rel="noopener" aria-label={title}>
+            {image}
+          </a>
         </Link>
       ) : (
         image

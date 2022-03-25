@@ -8,11 +8,12 @@ const FooterItem = ({ locale }) => {
       <h2>Copyright © {moment().year()}, Witech Enterprise</h2>
       <div className="flex ml-13">
         <Link href="/about" locale={locale}>
-          <a className="px-2 hover:underline">
+          <a rel="noopener" className="px-2 hover:underline">
             {locale === "en" ? "About Us" : "Tentang Kami"}
           </a>
         </Link>
         <a
+          rel="noopener"
           target="_blank"
           href="https://witech.co.id/terms-conditions/"
           className="px-2 hover:underline"
@@ -20,6 +21,7 @@ const FooterItem = ({ locale }) => {
           {locale === "en" ? "Terms & Conditions" : "Syarat & Ketentuan"}
         </a>
         <a
+          rel="noopener"
           target="_blank"
           href="https://witech.co.id/privacy-policy/"
           className="px-2 hover:underline"
@@ -27,6 +29,7 @@ const FooterItem = ({ locale }) => {
           Privacy Policy
         </a>
         <a
+          rel="noopener"
           target="_blank"
           href="https://witech.co.id/disclaimer/"
           className="px-2 hover:underline"
@@ -35,16 +38,25 @@ const FooterItem = ({ locale }) => {
         </a>
       </div>
       <div className="flex ml-auto">
-        <a target="_blank" href="https://www.instagram.com/witechenterprise/">
+        <a
+          rel="noopener"
+          target="_blank"
+          href="https://www.instagram.com/witechenterprise/"
+        >
           <img className="px-2" src="/svg/instagram.svg" />
         </a>
-        <a target="_blank" href="https://www.facebook.com/witech.enterprise">
+        <a
+          rel="noopener"
+          target="_blank"
+          href="https://www.facebook.com/witech.enterprise"
+        >
           <img className="px-2" src="/svg/facebook.svg" />
         </a>
-        <a target="_blank" href="https://twitter.com/witech_co">
+        <a rel="noopener" target="_blank" href="https://twitter.com/witech_co">
           <img className="px-2" src="/svg/twitter.svg" />
         </a>
         <a
+          rel="noopener"
           target="_blank"
           href="https://www.linkedin.com/company/pt-witech-inovasi-indonesia/about/"
         >

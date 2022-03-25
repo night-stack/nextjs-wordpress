@@ -54,6 +54,7 @@ const DropdownLink = ({ title, datas }) => {
           {datas.map((data, index) => (
             <li key={index}>
               <a
+                rel="noopener"
                 target="_blank"
                 href={`
                 ${data.id === "phone" ? "tel:" : ""} ${

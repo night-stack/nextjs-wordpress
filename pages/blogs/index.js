@@ -141,7 +141,7 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
                       <div className="sm:mx-0">
                         {node?.slug ? (
                           <Link href={`/posts/${node?.slug}`} locale={locale}>
-                            <a aria-label={node?.title}>
+                            <a rel="noopener" aria-label={node?.title}>
                               <img
                                 src={coverImage?.sourceUrl}
                                 alt={`img-${node?.slug}`}
@@ -175,7 +175,9 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
                       </div>
                       <div className="mb-5 text-lg font-bold w-full truncate">
                         <Link href={`/posts/${node?.slug}`} locale={locale}>
-                          <a className="hover:underline">{node?.title}</a>
+                          <a rel="noopener" className="hover:underline">
+                            {node?.title}
+                          </a>
                         </Link>
                       </div>
                     </div>

@@ -13,13 +13,13 @@ export default function Header() {
       }}
     >
       <Link href="/" locale={locale}>
-        <a className="flex justify-center items-center">
+        <a rel="noopener" className="flex justify-center items-center">
           <img src="/img/logo-witech-footer.png" className="h-10 w-10" />
         </a>
       </Link>
       <div className="flex flex-col justify-center items-center my-auto">
         <Link href="/" locale={locale}>
-          <a className="my-4 group flex items-center">
+          <a rel="noopener" className="my-4 group flex items-center">
             <svg
               className="h-8 w-8"
               viewBox="0 0 32 32"
@@ -43,7 +43,7 @@ export default function Header() {
           </a>
         </Link>
         <Link href="#" locale={locale}>
-          <a className="my-4 group flex items-center">
+          <a rel="noopener" className="my-4 group flex items-center">
             <svg
               className="h-8 w-8"
               stroke="#231F20"
@@ -77,7 +77,7 @@ export default function Header() {
           </a>
         </Link>
         <Link href="#" locale={locale}>
-          <a className="my-4 group flex items-center">
+          <a rel="noopener" className="my-4 group flex items-center">
             <svg
               className="h-8 w-8"
               stroke="#231F20"
@@ -104,7 +104,7 @@ export default function Header() {
           </a>
         </Link>
         <Link href="/about" locale={locale}>
-          <a className="my-4 group flex items-center">
+          <a rel="noopener" className="my-4 group flex items-center">
             <svg
               className="h-8 w-8"
               stroke="#231F20"
@@ -136,7 +136,7 @@ export default function Header() {
           </a>
         </Link>
         <Link href="#" locale={locale}>
-          <a className="my-4 group flex items-center">
+          <a rel="noopener" className="my-4 group flex items-center">
             <svg
               className="h-8 w-8"
               stroke="#231F20"

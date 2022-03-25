@@ -66,6 +66,7 @@ const Drawer = ({ show, setShow }) => {
                     <a
                       onClick={outsideClick}
                       className="block py-2 px-4 text-sm hover:bg-witech-blue dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                      rel="noopener"
                     >
                       {l}
                     </a>
@@ -130,6 +131,7 @@ const Drawer = ({ show, setShow }) => {
                     href="tel:02111234567"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     onClick={outsideClick}
+                    rel="noopener"
                   >
                     Phone Number
                   </a>
@@ -140,6 +142,7 @@ const Drawer = ({ show, setShow }) => {
                     href="mailto:halo@witech.co.id"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     onClick={outsideClick}
+                    rel="noopener"
                   >
                     Email
                   </a>
@@ -150,6 +153,7 @@ const Drawer = ({ show, setShow }) => {
                     href="https://api.whatsapp.com/send?phone=628116006700&text=Hi%20Witech%20Enterprise!%0AI%20want%20to%20discuss%20something."
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     onClick={outsideClick}
+                    rel="noopener"
                   >
                     Whatsapp
                   </a>
@@ -160,6 +164,7 @@ const Drawer = ({ show, setShow }) => {
                     href="https://www.instagram.com/witechenterprise/"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     onClick={outsideClick}
+                    rel="noopener"
                   >
                     Instagram
                   </a>
@@ -170,6 +175,7 @@ const Drawer = ({ show, setShow }) => {
                     href="https://www.facebook.com/witech.enterprise"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     onClick={outsideClick}
+                    rel="noopener"
                   >
                     Facebook
                   </a>
@@ -182,7 +188,10 @@ const Drawer = ({ show, setShow }) => {
         <ul className="flex flex-col">
           <li className="nav-link">
             <Link href="/" locale={locale}>
-              <a className={route === "/" ? "px-4 active" : "px-4"}>
+              <a
+                rel="noopener"
+                className={route === "/" ? "px-4 active" : "px-4"}
+              >
                 <svg
                   className="h-6 w-6 mr-2"
                   viewBox="0 0 32 32"
@@ -205,7 +214,7 @@ const Drawer = ({ show, setShow }) => {
           </li>
           <li className="nav-link">
             <Link href="#" locale={locale}>
-              <a className="px-4">
+              <a rel="noopener" className="px-4">
                 <svg
                   className="h-6 w-6 mr-2"
                   stroke="#000"
@@ -242,7 +251,7 @@ const Drawer = ({ show, setShow }) => {
           </li>
           <li className="nav-link">
             <Link href="#services" locale={locale}>
-              <a className="px-4">
+              <a rel="noopener" className="px-4">
                 <svg
                   className="h-6 w-6 mr-2"
                   stroke="#000"
@@ -268,7 +277,10 @@ const Drawer = ({ show, setShow }) => {
           </li>
           <li className="nav-link">
             <Link href="/about" locale={locale}>
-              <a className={route === "/about" ? "px-4 active" : "px-4"}>
+              <a
+                rel="noopener"
+                className={route === "/about" ? "px-4 active" : "px-4"}
+              >
                 <svg
                   className="h-6 w-6 mr-2"
                   stroke="#000"
@@ -299,7 +311,10 @@ const Drawer = ({ show, setShow }) => {
           </li>
           <li className="nav-link">
             <Link href="/blogs" locale={locale}>
-              <a className={route === "/blogs" ? "px-4 active" : "px-4"}>
+              <a
+                rel="noopener"
+                className={route === "/blogs" ? "px-4 active" : "px-4"}
+              >
                 <svg
                   className="h-6 w-6 mr-2"
                   stroke="#000"
@@ -336,16 +351,29 @@ const Drawer = ({ show, setShow }) => {
         </ul>
 
         <div className="flex mt-auto">
-          <a target="_blank" href="https://www.instagram.com/witechenterprise/">
+          <a
+            rel="noopener"
+            target="_blank"
+            href="https://www.instagram.com/witechenterprise/"
+          >
             <img className="pr-3" src="/svg/instagram.svg" />
           </a>
-          <a target="_blank" href="https://www.facebook.com/witech.enterprise">
+          <a
+            rel="noopener"
+            target="_blank"
+            href="https://www.facebook.com/witech.enterprise"
+          >
             <img className="pr-3" src="/svg/facebook.svg" />
           </a>
-          <a target="_blank" href="https://twitter.com/witech_co">
+          <a
+            rel="noopener"
+            target="_blank"
+            href="https://twitter.com/witech_co"
+          >
             <img className="pr-3" src="/svg/twitter.svg" />
           </a>
           <a
+            rel="noopener"
             target="_blank"
             href="https://www.linkedin.com/company/pt-witech-inovasi-indonesia/about/"
           >
@@ -354,6 +382,7 @@ const Drawer = ({ show, setShow }) => {
         </div>
         <div className="flex mt-5 text-[11px] font-bold">
           <a
+            rel="noopener"
             target="_blank"
             href="https://witech.co.id/terms-conditions/"
             className="pr-3 hover:underline"
@@ -361,6 +390,7 @@ const Drawer = ({ show, setShow }) => {
             {locale === "en" ? "Terms & Conditions" : "Syarat & Ketentuan"}
           </a>
           <a
+            rel="noopener"
             target="_blank"
             href="https://witech.co.id/privacy-policy/"
             className="hover:underline"

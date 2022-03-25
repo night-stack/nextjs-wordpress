@@ -42,6 +42,7 @@ export default function PostPreview({
           >
             <Link href={`/posts/${slug}`}>
               <a
+                rel="noopener"
                 className="hover:underline"
                 dangerouslySetInnerHTML={{ __html: title }}
               ></a>

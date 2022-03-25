@@ -31,7 +31,7 @@ export default function Post({ post, posts, preview }) {
       <nav className="bg-witech-dark-blue text-white text-sm font-bold mobile-content">
         <div className="flex items-center py-4 container mx-auto px-[25px]">
           <Link href="/" locale={router?.locale}>
-            <a>
+            <a rel="noopener">
               <img src="/img/logo.png" className="h-[35px]" />
             </a>
           </Link>

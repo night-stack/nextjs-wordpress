@@ -27,7 +27,9 @@ const Card = ({
         </div>
         <div className="mb-5 text-lg font-bold w-full truncate">
           <Link href={`/posts/${slug}`} locale={locale}>
-            <a className="hover:underline">{title}</a>
+            <a rel="noopener" className="hover:underline">
+              {title}
+            </a>
           </Link>
         </div>
       </div>

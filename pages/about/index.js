@@ -357,7 +357,7 @@ const About = () => {
                     : "Diskusikan dengan kami"}
                 </h1>
                 <div className="flex justify-center items-center ml-7 bg-witech-link rounded-full w-[50px] h-[50px]">
-                  <a href="#">
+                  <a rel="noopener" href="#">
                     <img className="h-6" src="/svg/arrowleft.svg"></img>
                   </a>
                 </div>

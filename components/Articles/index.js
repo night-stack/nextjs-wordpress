@@ -15,6 +15,7 @@ const Articles = ({ posts }) => {
           href="#"
           target="_blank"
           className="text-witech-link text-sm font-bold"
+          rel="noopener"
         >
           {locale === "en" ? "More Articles" : "Artikel Lainnya"}
         </a>

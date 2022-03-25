@@ -30,7 +30,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
   const settings = {
     customPaging: function (i) {
       return (
-        <a>
+        <a rel="noopener">
           <div className="h-1 bg-hero-slider" />
         </a>
       );

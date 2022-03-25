@@ -16,7 +16,7 @@ const Navbar = () => {
       >
         <div className="flex items-center py-4 container mx-auto px-25">
           <Link href="/" locale={locale}>
-            <a>
+            <a rel="noopener">
               <img src="/img/logo.png" className="h-12 w-12" />
             </a>
           </Link>
@@ -45,33 +45,44 @@ const Navbar = () => {
           <ul className="flex ml-5">
             <li className="nav-link">
               <Link href="/" locale={locale}>
-                <a className={route === "/" ? "px-4 active" : "px-4"}>
+                <a
+                  rel="noopener"
+                  className={route === "/" ? "px-4 active" : "px-4"}
+                >
                   {locale === "en" ? "Home" : "Beranda"}
                 </a>
               </Link>
             </li>
             <li className="nav-link">
               <Link href="#" locale={locale}>
-                <a className="px-4">{locale === "en" ? "Careers" : "Karir"}</a>
+                <a rel="noopener" className="px-4">
+                  {locale === "en" ? "Careers" : "Karir"}
+                </a>
               </Link>
             </li>
             <li className="nav-link">
               <Link href="#services" locale={locale}>
-                <a className="px-4">
+                <a rel="noopener" className="px-4">
                   {locale === "en" ? "Services" : "Layanan"}
                 </a>
               </Link>
             </li>
             <li className="nav-link">
               <Link href="/about" locale={locale}>
-                <a className={route === "/about" ? "px-4 active" : "px-4"}>
+                <a
+                  rel="noopener"
+                  className={route === "/about" ? "px-4 active" : "px-4"}
+                >
                   {locale === "en" ? "About" : "Tentang"}
                 </a>
               </Link>
             </li>
             <li className="nav-link">
               <Link href="/blogs" locale={locale}>
-                <a className={route === "/blogs" ? "px-4 active" : "px-4"}>
+                <a
+                  rel="noopener"
+                  className={route === "/blogs" ? "px-4 active" : "px-4"}
+                >
                   {locale === "en" ? "Blogs" : "Artikel"}
                 </a>
               </Link>
@@ -91,7 +102,10 @@ const Navbar = () => {
                   {locales.map((l, i) => (
                     <li key={i}>
                       <Link href={`${asPath}`} locale={l}>
-                        <a className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">
+                        <a
+                          rel="noopener"
+                          className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
+                        >
                           {l}
                         </a>
                       </Link>
@@ -128,6 +142,7 @@ const Navbar = () => {
                   <ul className="font-normal">
                     <li>
                       <a
+                        rel="noopener"
                         target="_blank"
                         href="tel:02111234567"
                         className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
@@ -137,6 +152,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
+                        rel="noopener"
                         target="_blank"
                         href="mailto:halo@witech.co.id"
                         className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
@@ -146,6 +162,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
+                        rel="noopener"
                         target="_blank"
                         href="https://api.whatsapp.com/send?phone=628116006700&text=Hi%20Witech%20Enterprise!%0AI%20want%20to%20discuss%20something."
                         className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
@@ -155,6 +172,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
+                        rel="noopener"
                         target="_blank"
                         href="https://www.instagram.com/witechenterprise/"
                         className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
@@ -164,6 +182,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
+                        rel="noopener"
                         target="_blank"
                         href="https://www.facebook.com/witech.enterprise"
                         className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
