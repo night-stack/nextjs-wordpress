@@ -73,15 +73,15 @@ export default function Index({ allPosts: { edges }, preview }) {
     setAutoPlay(0);
   }, []);
 
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (window.innerWidth <= 600) {
-        stopAutoPlay();
-      } else {
-        setAutoPlay(3);
-      }
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     if (window.innerWidth <= 600) {
+  //       stopAutoPlay();
+  //     } else {
+  //       setAutoPlay(3);
+  //     }
+  //   }
+  // }, []);
 
   return (
     <>

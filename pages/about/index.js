@@ -24,9 +24,9 @@ const About = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2.1,
+          slidesToShow: 3.1,
           slidesToScroll: 1,
         },
       },
@@ -38,6 +38,14 @@ const About = () => {
         },
       },
     ],
+  };
+
+  const settingsTablet = {
+    dots: false,
+    infinite: false,
+    autoplay: false,
+    arrows: false,
+    slidesToShow: 3,
   };
 
   const services = [

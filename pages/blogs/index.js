@@ -111,7 +111,7 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
         <Navbar />
         <div
           id="blog"
-          className="bg-witech-dark-blue mx-auto text-center py-25 text-white"
+          className="bg-witech-dark-blue mx-auto text-center py-25 lg:py-25 md:py-20 text-white"
         >
           <h1 className="font-semibold text-3.5xl leading-11 mb-5">Our Blog</h1>
           <p className="text-base font-medium">
@@ -135,7 +135,7 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
                 return (
                   <div
                     key={node?.id}
-                    className="px-2.5 w-full md:w-1/3 pb-2.5 min-h-[417px]"
+                    className="px-2.5 w-full lg:w-1/3 md:w-1/2 pb-2.5 min-h-[417px]"
                   >
                     <div className="card-header mb-5">
                       <div className="sm:mx-0">

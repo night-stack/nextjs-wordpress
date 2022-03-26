@@ -28,7 +28,10 @@ export default function Post({ post, posts, preview }) {
   return (
     <Layout preview={preview}>
       <Drawer show={show} setShow={setShow} />
-      <nav className="bg-witech-dark-blue text-white text-sm font-bold mobile-content">
+      <nav
+        id="post-mobile"
+        className="bg-witech-dark-blue text-white text-sm font-bold mobile-content"
+      >
         <div className="flex items-center py-4 container mx-auto px-[25px]">
           <Link href="/" locale={router?.locale}>
             <a rel="noopener">

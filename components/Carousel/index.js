@@ -30,11 +30,10 @@ const CustomCarousel = ({
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2.1,
+          slidesToShow: 2,
           slidesToScroll: 1,
-          arrows: false,
         },
       },
       {

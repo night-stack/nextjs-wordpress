@@ -175,17 +175,12 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
   };
 
   return (
-    <div
-      className="bg-witech-dark-blue pb-5"
-      style={{
-        paddingTop: 70,
-      }}
-    >
+    <div className="bg-witech-dark-blue pb-5 pt-[70px] md:pt-7.5">
       <div className="container mx-auto pt-2 pl-6.5 pr-2.5">
         <Slider {...settings} className="mobile-content">
           {_slides.map((data, i) => (
             <div key={data.id + i} className="card hero">
-              <div className="w-9/12 relative mr-2.5">
+              <div className="w-9/12 md:w-1/2 relative mr-2.5 md:pl-10">
                 <div className="flex text-sm text-white font-bold items-center">
                   <img
                     src={data.image}
@@ -196,7 +191,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                   />
                   {data.title}
                 </div>
-                <p className="z-10 mt-4 -mr-12 text-base font-bold text-white">
+                <p className="z-10 mt-4 -mr-12 text-base font-bold text-white md:w-11/12">
                   {data.heroText}
                 </p>
                 <div className="flex flex-row mt-3.5">
@@ -212,8 +207,11 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                   </div>
                 </div>
               </div>
-              <div className="bg-witech-blue hero-image">
-                <img src={data?.heroImage} className="object-cover" />
+              <div className="bg-witech-blue hero-image md:w-[350px] md:h-[250px]">
+                <img
+                  src={data?.heroImage}
+                  className="object-cover md:w-[250px] md:h-[200px]"
+                />
               </div>
             </div>
           ))}

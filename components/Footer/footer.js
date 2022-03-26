@@ -16,19 +16,21 @@ export default function Footer() {
           }}
         >
           <img className="footer-logo" src="/img/logo-witech-footer.png" />
-          <div className="text-sm ml-4">
+          <div className="text-sm ml-4 footer-font-11">
             PT. Witech Inovasi Indonesia
-            <h2 className="text-sm">Some of tagline words</h2>
+            <h2 className="text-sm footer-font-10">Some of tagline words</h2>
           </div>
         </div>
         <div className="w-full md:w-1/4 text-lg">
-          <h1>{locale === "en" ? "Contact" : "Kontak"}</h1>
+          <h1 className="footer-font-10">
+            {locale === "en" ? "Contact" : "Kontak"}
+          </h1>
           <div className="footer-contact">
             <div className="flex items-center py-3">
               <div className="img-contact-footer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-"
+                  className="h-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -41,7 +43,7 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <h2 className="pl-4 font-normal hover:underline">
+              <h2 className="pl-4 font-normal hover:underline footer-font-11">
                 <a rel="noopener" target="_blank" href="tel:02111234567">
                   (021) - 11234567
                 </a>
@@ -64,7 +66,7 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <h2 className="pl-4 font-normal hover:underline">
+              <h2 className="pl-4 font-normal hover:underline footer-font-11">
                 <a
                   rel="noopener"
                   target="_blank"
@@ -77,8 +79,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-full md:w-1/4 text-lg">
-          <h1 className="pb-3">{locale === "en" ? "Location" : "Lokasi"}</h1>
-          <h2 className="font-normal hover:underline">
+          <h1 className="pb-3 footer-font-11">
+            {locale === "en" ? "Location" : "Lokasi"}
+          </h1>
+          <h2 className="font-normal hover:underline footer-font-11">
             <a
               rel="noopener"
               target="_blank"
@@ -90,8 +94,13 @@ export default function Footer() {
           </h2>
         </div>
         <div className="ml-auto">
-          <img width={104} height={33} src="/img/oddo-logo-footer.png" />
-          <p className="text-sm mt-2">Partner</p>
+          <img
+            className="footer-logo-oddo-tablet"
+            width={104}
+            height={33}
+            src="/img/oddo-logo-footer.png"
+          />
+          <p className="text-sm mt-2 footer-font-11">Partner</p>
         </div>
       </div>
       <FooterItem locale={locale} />

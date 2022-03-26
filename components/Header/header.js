@@ -42,7 +42,7 @@ export default function Header() {
             </span>
           </a>
         </Link>
-        <Link href="#" locale={locale}>
+        <Link href="/careers" locale={locale}>
           <a rel="noopener" className="my-4 group flex items-center">
             <svg
               className="h-8 w-8"
@@ -135,7 +135,7 @@ export default function Header() {
             </span>
           </a>
         </Link>
-        <Link href="#" locale={locale}>
+        <Link href="/blogs" locale={locale}>
           <a rel="noopener" className="my-4 group flex items-center">
             <svg
               className="h-8 w-8"

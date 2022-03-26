@@ -17,7 +17,10 @@ const Navbar = () => {
         <div className="flex items-center py-4 container mx-auto px-25">
           <Link href="/" locale={locale}>
             <a rel="noopener">
-              <img src="/img/logo.png" className="h-12 w-12" />
+              <img
+                src="/img/logo.png"
+                className="h-12 w-12 logo-witech-tablet"
+              />
             </a>
           </Link>
           <button
@@ -26,9 +29,8 @@ const Navbar = () => {
             onClick={() => setShow(!show)}
           >
             <svg
-              className="stroke-white"
+              className="stroke-white h-6 w-6"
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -54,7 +56,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-link">
-              <Link href="#" locale={locale}>
+              <Link href="/careers" locale={locale}>
                 <a rel="noopener" className="px-4">
                   {locale === "en" ? "Careers" : "Karir"}
                 </a>
@@ -92,7 +94,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between ml-auto navbar-contact">
             <div className="flex flex-col items-center group">
               <div className="flex cursor-pointer items-center">
-                <div className="w-6 h-6">
+                <div className="w-6 h-6 btn-icon-tablet">
                   <img src="/img/globe.png" />
                 </div>
                 <span className="px-2 capitalize">{locale}</span>
@@ -115,17 +117,17 @@ const Navbar = () => {
               </div>
             </div>
             <div
-              className="ml-8 items-center flex text-witech-dark-blue bg-witech-link justify-center"
+              className="contact-tablet ml-8 items-center flex text-witech-dark-blue bg-witech-link justify-center"
               style={{ minWidth: "140px", height: "45px" }}
             >
               <div className="flex w-full group">
                 <button
                   type="button"
-                  className="flex justify-between items-center py-2 px-7 w-full font-bold border-0 outline-none text-sm"
+                  className="btn-contact-tablet flex justify-between items-center py-2 px-7 w-full font-bold border-0 outline-none text-sm"
                 >
                   {locale === "en" ? "Contact" : "Kontak"}
                   <svg
-                    className="h-5 mr-0 fill-witech-dark-blue"
+                    className="h-5 mr-0 fill-witech-dark-blue btn-icon-tablet"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"

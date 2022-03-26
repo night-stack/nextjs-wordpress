@@ -213,7 +213,7 @@ const Drawer = ({ show, setShow }) => {
             </Link>
           </li>
           <li className="nav-link">
-            <Link href="#" locale={locale}>
+            <Link href="/careers" locale={locale}>
               <a rel="noopener" className="px-4">
                 <svg
                   className="h-6 w-6 mr-2"
