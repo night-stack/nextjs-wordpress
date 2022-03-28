@@ -16,14 +16,7 @@ const InstagramFeed = ({ posts }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 0,
-          slidesToScroll: 0,
-        },
-      },
-      {
-        breakpoint: 820,
-        settings: {
-          slidesToShow: 2.1,
+          slidesToShow: 3.1,
           slidesToScroll: 1,
         },
       },

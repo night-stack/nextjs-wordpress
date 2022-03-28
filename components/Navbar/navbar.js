@@ -19,7 +19,7 @@ const Navbar = () => {
             <a rel="noopener">
               <img
                 src="/img/logo.png"
-                className="h-12 w-12 logo-witech-tablet"
+                className="h-12 w-12"
               />
             </a>
           </Link>
@@ -94,7 +94,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between ml-auto navbar-contact">
             <div className="flex flex-col items-center group">
               <div className="flex cursor-pointer items-center">
-                <div className="w-6 h-6 btn-icon-tablet">
+                <div className="w-6 h-6">
                   <img src="/img/globe.png" />
                 </div>
                 <span className="px-2 capitalize">{locale}</span>
@@ -117,17 +117,17 @@ const Navbar = () => {
               </div>
             </div>
             <div
-              className="contact-tablet ml-8 items-center flex text-witech-dark-blue bg-witech-link justify-center"
+              className=" ml-8 items-center flex text-witech-dark-blue bg-witech-link justify-center"
               style={{ minWidth: "140px", height: "45px" }}
             >
               <div className="flex w-full group">
                 <button
                   type="button"
-                  className="btn-contact-tablet flex justify-between items-center py-2 px-7 w-full font-bold border-0 outline-none text-sm"
+                  className="flex justify-between items-center py-2 px-7 w-full font-bold border-0 outline-none text-sm"
                 >
                   {locale === "en" ? "Contact" : "Kontak"}
                   <svg
-                    className="h-5 mr-0 fill-witech-dark-blue btn-icon-tablet"
+                    className="h-5 mr-0 fill-witech-dark-blue"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"

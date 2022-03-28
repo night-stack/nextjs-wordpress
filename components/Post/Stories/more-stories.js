@@ -1,7 +1,12 @@
+import React from "react";
 import PostPreview from "../../Post/Preview/post-preview";
 import SectionSeparator from "../Separator/section-separator";
 
 export default function MoreStories({ posts }) {
+  const [page, setPage] = React.useState(3);
+  const filter = posts.slice(0, page);
+  console.log(filter);
+
   return (
     <section className="">
       <SectionSeparator />
@@ -9,7 +14,7 @@ export default function MoreStories({ posts }) {
         More Articles
       </h2>
       <div className="w-full mb-8">
-        {posts.map(({ node }) => (
+        {filter.map(({ node }) => (
           <PostPreview
             key={node.slug}
             title={node.title}
@@ -23,12 +28,15 @@ export default function MoreStories({ posts }) {
         ))}
       </div>
       <div className="text-center w-full mb-9 md:mb-14">
-        <button
-          type="button"
-          className="bg-black px-8 md:px-12 py-3 rounded-full text-white text-xs md:text-sm font-semibold"
-        >
-          Load More
-        </button>
+        {posts.length !== filter.length && (
+          <button
+            onClick={() => setPage(page + 3)}
+            type="button"
+            className="bg-black px-8 md:px-12 py-3 rounded-full text-white text-xs md:text-sm font-semibold"
+          >
+            Load More
+          </button>
+        )}
       </div>
     </section>
   );

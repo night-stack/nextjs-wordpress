@@ -191,7 +191,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                   />
                   {data.title}
                 </div>
-                <p className="z-10 mt-4 -mr-12 text-base font-bold text-white md:w-11/12">
+                <p className="hero-text481 z-10 mt-4 -mr-12 text-base font-bold text-white md:w-11/12">
                   {data.heroText}
                 </p>
                 <div className="flex flex-row mt-3.5">
@@ -207,7 +207,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                   </div>
                 </div>
               </div>
-              <div className="bg-witech-blue hero-image md:w-[350px] md:h-[250px]">
+              <div className="bg-witech-blue hero-image hero-width481 md:w-[350px] md:h-[250px]">
                 <img
                   src={data?.heroImage}
                   className="object-cover md:w-[250px] md:h-[200px]"
@@ -221,9 +221,8 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
         {_slides.map((_slide, i) => (
           <div
             key={_slide.id + i}
-            className={`headline-item w-full h-full my-auto ${
-              i !== activeSlide ? "hidden" : "active"
-            }`}
+            className={`headline-item w-full h-full my-auto ${i !== activeSlide ? "hidden" : "active"
+              }`}
           >
             <div className="w-1/2 my-auto pr-4 pb-20">
               <div className="flex text-lg text-white font-bold items-center">

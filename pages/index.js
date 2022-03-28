@@ -104,7 +104,7 @@ export default function Index({ allPosts: { edges }, preview }) {
           <Footer />
         </Container>
       </Layout>
-      <Chat />
+      {/* <Chat /> */}
     </>
   );
 }

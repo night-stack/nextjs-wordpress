@@ -714,32 +714,32 @@ button {
     display: none;
   }
   #post {
-    margin-left: 0!important;
+    margin-left: 0 !important;
   }
   .more-post .date span {
-    font-size: 12px!important;
+    font-size: 12px !important;
   }
   .post-wrapper {
-    padding: 0!important;
-    width: 100%!important;
+    padding: 0 !important;
+    width: 100% !important;
   }
   #post h1.text-3\.5xl {
-    font-size: 24px!important;
-    text-align: left!important;
-    line-height: 32px!important;
+    font-size: 24px !important;
+    text-align: left !important;
+    line-height: 32px !important;
   }
   #tags {
     margin-top: 16px;
-    font-size: 8px!important;
-    font-weight: 700!important;
+    font-size: 8px !important;
+    font-weight: 700 !important;
   }
   #tag-title {
-    font-size: 16px!important;
+    font-size: 16px !important;
     -webkit-line-clamp: 1;
   }
   #tag-desc {
-    margin-bottom: 0!important;
-    font-size: 12px!important;
+    margin-bottom: 0 !important;
+    font-size: 12px !important;
   }
   #tag-img {
     padding-left: 6px;
@@ -755,13 +755,345 @@ button {
   }
 }
 
+@media only screen and (min-device-width: 481px) and (max-device-width: 767px) {
+  nav#navbar {
+    border-bottom: none !important;
+  }
+  h1 {
+    font-size: 14px !important;
+  }
+  h2 {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 16px;
+  }
+  #navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 11;
+  }
+  #navbar div a:first-child img {
+    width: 35px;
+    height: 35px;
+  }
+  #navbar .menu-button {
+    display: block !important;
+  }
+  .chat-wrapper {
+    right: 10px;
+  }
+  .chat-wrapper img {
+    width: 24px;
+    height: 24px;
+  }
+  .btn-chat {
+    width: 50px;
+    height: 50px;
+  }
+  .container:not(:first-child) {
+    margin-top: 30px !important;
+  }
+  .card-header {
+    margin-bottom: 10px !important;
+  }
+  .card-header img {
+    height: 180px;
+  }
+  /* .mobile-content .card .services-card h1 {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 11px!important;
+  } */
+  .mobile-content .card h1 {
+    font-size: 12px !important;
+  }
+  .card {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+  .card-body .text-sm {
+    font-size: 12px !important;
+  }
+  .card-body div:first-child {
+    margin-bottom: 8px !important;
+  }
+  .card-body div:last-child {
+    margin-bottom: 0 !important;
+  }
+  .card-body a {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .leading-11 {
+    font-size: 17px !important;
+    line-height: 24px !important;
+  }
+  .service-title {
+    padding-right: 0;
+    max-width: 65%;
+  }
+  .img-wrapper-services {
+    max-width: 300px;
+    width: 236px;
+    height: 200px;
+    border-radius: 45px 0px 0px 0px !important;
+  }
+  .img-wrapper-services img {
+    display: block;
+    position: relative;
+    right: 24%;
+    height: 140px;
+    bottom: 8px;
+    width: 236px;
+    height: 200px;
+  }
+  .px-25 {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+  .headline,
+  .headline-dots {
+    display: none !important;
+  }
+  .sosmed {
+    margin-bottom: 20px !important;
+  }
+  .sosmed ul,
+  .sosmed-dropdown {
+    display: none !important;
+  }
+  #feed {
+    display: none;
+  }
+  #feed-mobile {
+    display: block;
+  }
+  #navbar ul,
+  .navbar-contact {
+    display: none !important;
+  }
+  .img-wrapper-services img.relative {
+    display: none;
+  }
+  #services {
+    padding-right: 0 !important;
+  }
+  .services {
+    display: none !important;
+  }
+  .footer-sosmed {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  .footer-sosmed div {
+    display: none !important;
+  }
+  .footer .logo-wrapper {
+    max-width: 100% !important;
+  }
+  .footer {
+    display: block !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .footer .ml-auto {
+    margin-top: 20px;
+  }
+  .footer h1 {
+    margin-top: 20px;
+  }
+  .footer-contact {
+    display: flex;
+  }
+  .footer-contact .py-3 {
+    padding-top: 10px !important;
+    padding-bottom: 0px !important;
+  }
+  .footer-contact div:first-child {
+    margin-right: auto;
+  }
+  .footer-logo {
+    width: 35px;
+    height: 35px;
+  }
+  .img-contact-footer {
+    width: auto !important;
+    height: auto !important;
+  }
+  .mobile-content {
+    display: block !important;
+  }
+  .btn-primary {
+    font-size: 12px;
+    height: 30px;
+  }
+  .btn-secondary {
+    font-size: 11px;
+    height: 30px;
+    padding: 0 0.5rem;
+  }
+  .background-img-about {
+    background-position-y: 200px;
+    background-position-x: 110px;
+    background-size: 400px;
+  }
+  .about {
+    width: 100% !important;
+    margin-top: 130px;
+    margin-bottom: 40px !important;
+  }
+  .about:not(:first-child) {
+    display: none;
+  }
+  #about p.text-xl {
+    font-size: 16px !important;
+    line-height: 16.44px !important;
+  }
+  .about-headline {
+    min-height: auto;
+    background-color: rgb(5, 16, 58, 0.7);
+  }
+  #about .text-3xl {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+  #about .subtitle {
+    font-size: 12px !important;
+    line-height: 20px !important;
+    width: 79%;
+    font-weight: 500 !important;
+  }
+  #services.mb-7\.5 {
+    margin-bottom: 0 !important;
+  }
+  #mission {
+    padding-top: 20px !important;
+    flex-direction: column;
+  }
+  #mission h1:first-child {
+    margin-bottom: 20px !important;
+  }
+  #mission .w-1\/2 {
+    width: 100% !important;
+  }
+  #mission div.text-lg {
+    font-size: 14px !important;
+    line-height: 28px !important;
+    margin-bottom: 30px;
+  }
+  #mission img {
+    height: auto !important;
+  }
+  #contact .subtitle {
+    margin-top: 20px;
+    font-size: 24px !important;
+    line-height: 26px !important;
+  }
+  #contact .px-10 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #contact .title {
+    margin-top: 2px !important;
+    font-weight: 600 !important;
+  }
+  #contact .w-\[50px\] {
+    margin-left: 20px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  #contact .w-\[50px\] img {
+    height: 14px !important;
+  }
+  #contact {
+    padding-bottom: 30px;
+  }
+  #blog .min-h-\[417px\]:not(:last-child) {
+    min-height: auto !important;
+    margin-bottom: 1.5rem !important;
+  }
+  #blog .min-h-\[417px\]:last-child {
+    min-height: auto !important;
+    margin-bottom: 0 !important;
+  }
+  #blog .text-base {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+  #spinner svg {
+    margin-left: 10px;
+  }
+  #pagination {
+    margin-top: 0 !important;
+  }
+  #pagination button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  #header-post {
+    display: none;
+  }
+  #post {
+    margin-left: 0 !important;
+  }
+  .more-post .date span {
+    font-size: 12px !important;
+  }
+  .post-wrapper {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  #post h1.text-3\.5xl {
+    font-size: 24px !important;
+    text-align: left !important;
+    line-height: 32px !important;
+  }
+  #tags {
+    margin-top: 16px;
+    font-size: 8px !important;
+    font-weight: 700 !important;
+  }
+  #tag-title {
+    font-size: 16px !important;
+    -webkit-line-clamp: 1;
+  }
+  #tag-desc {
+    margin-bottom: 0 !important;
+    font-size: 12px !important;
+  }
+  #tag-img {
+    padding-left: 6px;
+  }
+  .empty-state {
+    min-height: 300px;
+  }
+  .hero-width481 {
+    width: 350px;
+    height: 250px;
+  }
+
+  .hero-width481 img {
+    width: 350px;
+    height: 200px;
+  }
+
+  .hero-text481 {
+    width: 100%;
+  }
+}
+@keyframes slide {
+  100% {
+    right: 0;
+  }
+}
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   #navbar ul,
   .navbar-contact {
     font-size: 11px !important;
   }
   #post-mobile {
-    display: none!important;
+    display: none !important;
   }
   h1 {
     font-size: 14px !important;
@@ -796,11 +1128,11 @@ button {
     width: 120px !important;
   }
   .post-wrapper {
-    padding: 0!important;
-    width: 80%!important;
+    padding: 0 !important;
+    width: 80% !important;
   }
   #tag-title {
-    font-size: 18px!important;
+    font-size: 18px !important;
   }
   .chat-wrapper {
     right: 10px;
@@ -848,8 +1180,8 @@ button {
     width: 65%;
   }
   .service-title h1 {
-    font-size: 24px!important;
-    line-height: 32px!important;
+    font-size: 24px !important;
+    line-height: 32px !important;
   }
   .img-wrapper-services {
     max-width: 300px !important;
