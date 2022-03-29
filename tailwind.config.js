@@ -34,7 +34,7 @@ module.exports = {
         35.5: "140px",
         63: "250px",
         md: "8.6%",
-        "md-menu": "8.81%",
+        "md-menu": "10%",
         lg: "12.2%",
         "lang-md": "22.2%",
         "lang-lg": "19.4%",

@@ -5,7 +5,6 @@ import SectionSeparator from "../Separator/section-separator";
 export default function MoreStories({ posts }) {
   const [page, setPage] = React.useState(3);
   const filter = posts.slice(0, page);
-  console.log(filter);
 
   return (
     <section className="">
