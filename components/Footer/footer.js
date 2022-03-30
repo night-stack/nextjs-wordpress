@@ -18,7 +18,7 @@ export default function Footer() {
           <img className="footer-logo" src="/img/logo-witech-footer.png" />
           <div className="text-sm ml-4 footer-font-11">
             PT. Witech Inovasi Indonesia
-            <h2 className="text-sm footer-font-10">Some of tagline words</h2>
+            <h2 className="text-sm footer-font-10">We love technology</h2>
           </div>
         </div>
         <div className="w-full md:w-1/4 text-lg">

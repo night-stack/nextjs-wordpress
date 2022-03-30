@@ -40,11 +40,11 @@ const InstagramFeed = ({ posts }) => {
   const socials = [
     {
       name: "Witech Enterprise",
-      link: "https://www.instagram.com/hooela.app/",
+      link: "https://www.instagram.com/witechenterprise/",
     },
     {
       name: "Hooela",
-      link: "https://www.instagram.com/witechenterprise/",
+      link: "https://www.instagram.com/hooela.app/",
     },
   ];
   const dummyFeed = [
@@ -116,7 +116,7 @@ const InstagramFeed = ({ posts }) => {
           title={locale === "en" ? "View More" : "Lihat Lainnya"}
         />
       </div>
-      <FeedCard datas={dummyFeed} />
+      <FeedCard datas={dummyFeed} filter={filter} />
 
       <div>
         <Slider {...settings} className="mobile-content">
