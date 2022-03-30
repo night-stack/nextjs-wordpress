@@ -122,7 +122,7 @@ const Drawer = ({ show, setShow }) => {
             <div
               className={`z-40 ${
                 contact ? "block" : "hidden"
-              } w-[247px] text-base list-none bg-witech-dark-blue text-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute top-[21.5%]`}
+              } w-[247px] text-base list-none bg-witech-dark-blue text-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute top-[135px]`}
             >
               <ul className="font-normal">
                 <li>
