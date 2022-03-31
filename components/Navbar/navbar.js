@@ -64,7 +64,10 @@ const Navbar = () => {
             </li>
             <li className="nav-link">
               <Link href="/careers" locale={locale}>
-                <a rel="noopener" className="px-4">
+                <a
+                  rel="noopener"
+                  className={route === "/careers" ? "px-4 active" : "px-4"}
+                >
                   {locale === "en" ? "Careers" : "Karir"}
                 </a>
               </Link>

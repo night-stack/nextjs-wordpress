@@ -34,11 +34,12 @@ const Careers = () => {
           className="bg-witech-dark-blue mx-auto text-center py-25 lg:py-25 md:py-20 text-white"
         >
           <h1 className="font-semibold text-3.5xl leading-11 mb-5">
-            We want you!
+            {locale === "en" ? "We want you!" : "Kami menginginkanmu!"}
           </h1>
           <p className="text-base font-medium px-2 md:px-0">
-            Be part of our company culture, learn, grow and move forward
-            together.
+            {locale === "en"
+              ? "Be part of our company culture, learn, grow and move forward together."
+              : "Jadilah bagian dari budaya perusahaan kami, belajar, tumbuh dan maju bersama."}
           </p>
         </div>
         <Container>

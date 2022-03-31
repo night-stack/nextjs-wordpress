@@ -191,6 +191,7 @@ const Drawer = ({ show, closeModal }) => {
               <a
                 rel="noopener"
                 className={route === "/" ? "px-4 active" : "px-4"}
+                onClick={closeModal}
               >
                 <svg
                   className="h-6 w-6 mr-2"
@@ -214,7 +215,11 @@ const Drawer = ({ show, closeModal }) => {
           </li>
           <li className="nav-link">
             <Link href="/careers" locale={locale}>
-              <a rel="noopener" className="px-4">
+              <a
+                rel="noopener"
+                className={route === "/careers" ? "px-4 active" : "px-4"}
+                onClick={closeModal}
+              >
                 <svg
                   className="h-6 w-6 mr-2"
                   stroke="#000"
@@ -251,7 +256,7 @@ const Drawer = ({ show, closeModal }) => {
           </li>
           <li className="nav-link">
             <Link href="#services" locale={locale}>
-              <a rel="noopener" className="px-4">
+              <a rel="noopener" className="px-4" onClick={closeModal}>
                 <svg
                   className="h-6 w-6 mr-2"
                   stroke="#000"
@@ -280,6 +285,7 @@ const Drawer = ({ show, closeModal }) => {
               <a
                 rel="noopener"
                 className={route === "/about" ? "px-4 active" : "px-4"}
+                onClick={closeModal}
               >
                 <svg
                   className="h-6 w-6 mr-2"
@@ -314,6 +320,7 @@ const Drawer = ({ show, closeModal }) => {
               <a
                 rel="noopener"
                 className={route === "/blogs" ? "px-4 active" : "px-4"}
+                onClick={closeModal}
               >
                 <svg
                   className="h-6 w-6 mr-2"

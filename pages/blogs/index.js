@@ -113,9 +113,13 @@ const Blogs = ({ preview, getPosts: { edges, pageInfo } }) => {
           id="blog"
           className="bg-witech-dark-blue mx-auto text-center py-25 lg:py-25 md:py-20 text-white"
         >
-          <h1 className="font-semibold text-3.5xl leading-11 mb-5">Our Blog</h1>
+          <h1 className="font-semibold text-3.5xl leading-11 mb-5">
+            {locale === "en" ? "Our Blog" : "Blog Kami"}
+          </h1>
           <p className="text-base font-medium">
-            The latest industry interviews, technologies, and resources
+            {locale === "en"
+              ? "The latest industry interviews, technologies, and resources"
+              : "Informasi mengenai industri terbaru, teknologi, dan sumber daya"}
           </p>
         </div>
         <Container>
