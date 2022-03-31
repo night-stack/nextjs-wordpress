@@ -109,9 +109,9 @@ export default function Index({ allPosts: { edges }, preview }) {
   );
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview);
+export async function getServerSideProps() {
+  const allPosts = await getAllPostsForHome();
   return {
-    props: { allPosts, preview },
+    props: { allPosts, preview: false },
   };
 }

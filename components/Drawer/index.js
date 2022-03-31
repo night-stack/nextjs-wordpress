@@ -21,7 +21,7 @@ function useOutsideAlerter(langRef, contactRef, setLang, setContact) {
   }, [langRef, contactRef]);
 }
 
-const Drawer = ({ show, setShow }) => {
+const Drawer = ({ show, closeModal }) => {
   const { locale, locales, asPath, route } = useRouter();
   const [lang, setLang] = useState(false);
   const [contact, setContact] = useState(false);
@@ -36,10 +36,10 @@ const Drawer = ({ show, setShow }) => {
   useOutsideAlerter(langRef, contactRef, setLang, setContact);
 
   return (
-    <div>
+    <div className={show ? "modal-open" : "modal-close"}>
       <div
         id="backdrop"
-        onClick={() => setShow(false)}
+        onClick={closeModal}
         className={show ? "open" : "close"}
       />
 
@@ -76,7 +76,7 @@ const Drawer = ({ show, setShow }) => {
             </ul>
           </div>
 
-          <button type="button" onClick={() => setShow(!show)}>
+          <button type="button" onClick={closeModal}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -128,7 +128,7 @@ const Drawer = ({ show, setShow }) => {
                 <li>
                   <a
                     target="_blank"
-                    href="tel:02111234567"
+                    href="tel:06162003339"
                     className="block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                     onClick={outsideClick}
                     rel="noopener"

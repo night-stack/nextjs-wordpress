@@ -44,8 +44,8 @@ export default function Footer() {
                 </svg>
               </div>
               <h2 className="pl-4 font-normal hover:underline footer-font-11">
-                <a rel="noopener" target="_blank" href="tel:02111234567">
-                  (021) - 11234567
+                <a rel="noopener" target="_blank" href="tel:06162003339">
+                  (061) - 62003339
                 </a>
               </h2>
             </div>

@@ -7,9 +7,19 @@ const Navbar = () => {
   const { locale, locales, route, asPath } = useRouter();
   const [show, setShow] = useState(false);
 
+  const openModal = () => {
+    document.body.classList.add("modal-open");
+    setShow(true);
+  };
+
+  const closeModal = () => {
+    document.body.classList.remove("modal-open");
+    setShow(false);
+  };
+
   return (
     <>
-      <Drawer show={show} setShow={setShow} />
+      <Drawer show={show} closeModal={closeModal} />
       <nav
         id="navbar"
         className="bg-witech-dark-blue text-white text-sm font-bold"
@@ -17,16 +27,13 @@ const Navbar = () => {
         <div className="flex items-center py-4 container mx-auto px-25">
           <Link href="/" locale={locale}>
             <a rel="noopener">
-              <img
-                src="/img/logo.png"
-                className="h-12 w-12"
-              />
+              <img src="/img/logo.png" className="h-12 w-12" />
             </a>
           </Link>
           <button
             type="button"
             className="ml-auto hidden menu-button"
-            onClick={() => setShow(!show)}
+            onClick={openModal}
           >
             <svg
               className="stroke-white h-6 w-6"
@@ -146,7 +153,7 @@ const Navbar = () => {
                       <a
                         rel="noopener"
                         target="_blank"
-                        href="tel:02111234567"
+                        href="tel:06162003339"
                         className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white"
                       >
                         Phone Number

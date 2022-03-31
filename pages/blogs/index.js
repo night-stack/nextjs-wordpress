@@ -11,7 +11,7 @@ import moment from "moment";
 import { InfinitySpin } from "react-loader-spinner";
 import Pagination from "~/components/Pagination";
 
-const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
+const Blogs = ({ preview, getPosts: { edges, pageInfo } }) => {
   // const posts = edges;
   const { locale } = useRouter();
   const [posts, setPosts] = React.useState([]);
@@ -212,14 +212,10 @@ const Blogs = ({ allPosts, preview, getPosts: { edges, pageInfo } }) => {
 
 export default Blogs;
 
-export async function getStaticProps({
-  preview = false,
-  next = "",
-  before = "",
-}) {
-  const allPosts = await getAllPostsForHome(preview);
-  const getPosts = await getPostsForBlogs(preview, next, before);
+export async function getServerSideProps() {
+  const getPosts = await getPostsForBlogs(false, "", "");
+
   return {
-    props: { allPosts, preview, next, getPosts },
+    props: { preview: false, getPosts },
   };
 }
