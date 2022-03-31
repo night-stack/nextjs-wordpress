@@ -32,12 +32,28 @@ export default function Meta() {
       <meta name="theme-color" content="#000" />
       <meta
         name="description"
-        content="We are a web design and development company, building websites that drive traffic, engagement, and conversion for industry-leading brands and startups in Indonesia"
+        content="Kami adalah software house yang menyediakan jasa pembuatan aplikasi & website custom di Medan. Punya proyek? Kontak sekarang"
+      />
+      <meta
+        property="og:title"
+        content="Witech Enterprise | Your Business Solution"
+      />
+      <meta
+        name="og:description"
+        content="Kami adalah software house yang menyediakan jasa pembuatan aplikasi & website custom di Medan. Punya proyek? Kontak sekarang"
       />
       <meta
         property="og:image"
-        content="https://medanwow.id/wp-content/uploads/2022/03/Logo-03.jpg"
+        content="https://blog.witech.co.id/wp-content/uploads/2022/03/og-image.png"
       />
+      <meta
+        property="og:image:secure_url"
+        content="https://blog.witech.co.id/wp-content/uploads/2022/03/og-image.png"
+      />
+      <meta property="og:image:width" content="513" />
+      <meta property="og:image:height" content="513" />
+      <meta property="og:image:alt" content="thumbnail witech enterprise" />
+      <meta property="og:image:type" content="image/jpeg" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     </Head>
   );
