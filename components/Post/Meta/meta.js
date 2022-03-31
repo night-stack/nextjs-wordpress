@@ -30,12 +30,12 @@ export default function Meta() {
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
         content="We are a web design and development company, building websites that drive traffic, engagement, and conversion for industry-leading brands and startups in Indonesia"
       />
-      <meta property="og:image" content="/og-image.jpg" />
+      <meta property="og:image" content="/favicon/og-image.png" />
+      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     </Head>
   );
 }
