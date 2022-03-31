@@ -1,5 +1,4 @@
-import Head from 'next/head'
-import { CMS_NAME, HOME_OG_IMAGE_URL } from '../../../lib/constants'
+import Head from "next/head";
 
 export default function Meta() {
   return (
@@ -34,9 +33,9 @@ export default function Meta() {
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
+        content="We are a web design and development company, building websites that drive traffic, engagement, and conversion for industry-leading brands and startups in Indonesia"
       />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta property="og:image" content="/og-image.jpg" />
     </Head>
-  )
+  );
 }

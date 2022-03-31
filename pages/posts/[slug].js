@@ -24,7 +24,7 @@ export default function Post({ post, posts, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
-  console.log("CLIENT ", post, posts, preview);
+
   return (
     <Layout preview={preview}>
       <Drawer show={show} setShow={setShow} />
