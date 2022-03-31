@@ -12,7 +12,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
   const autoPlayRef = useRef();
   const transitionRef = useRef();
   const resizeRef = useRef();
-  const { locale } = useRouter();
+  const { locale, push } = useRouter();
   const filterData = data.filter((data) => data.locale === locale);
 
   const firstSlide = filterData[0];
@@ -174,6 +174,10 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
     });
   };
 
+  const pricingClick = () => {
+    push("https://witech.co.id/pricing/");
+  };
+
   return (
     <div className="bg-witech-dark-blue pb-5 pt-[70px] md:pt-7.5">
       <div className="container mx-auto pt-2 pl-6.5 pr-2.5">
@@ -195,11 +199,13 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                   {data.heroText}
                 </p>
                 <div className="flex flex-row mt-3.5">
-                  <div className="mr-2" style={{ width: 76 }}>
-                    <Button className="w-full">
-                      {locale === "en" ? "Pricing" : "Harga"}
-                    </Button>
-                  </div>
+                  {data.id === "odoo" && (
+                    <div className="mr-2" style={{ width: 76 }}>
+                      <Button className="w-full" onClick={pricingClick}>
+                        {locale === "en" ? "Pricing" : "Harga"}
+                      </Button>
+                    </div>
+                  )}
                   <div style={{ width: 90 }}>
                     <Button color="secondary" className="w-full">
                       {locale === "en" ? "Learn More" : "Pelajari Lebih"}
@@ -207,7 +213,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                   </div>
                 </div>
               </div>
-              <div className="bg-witech-blue hero-image hero-width481 md:w-[350px] md:h-[250px]">
+              <div className="bg-witech-blue hero-image hero-width481 md:w-[350px] md:h-[250px] max-w-[151px]">
                 <img
                   src={data?.heroImage}
                   className="object-cover md:w-[250px] md:h-[200px]"
@@ -221,8 +227,9 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
         {_slides.map((_slide, i) => (
           <div
             key={_slide.id + i}
-            className={`headline-item w-full h-full my-auto ${i !== activeSlide ? "hidden" : "active"
-              }`}
+            className={`headline-item w-full h-full my-auto ${
+              i !== activeSlide ? "hidden" : "active"
+            }`}
           >
             <div className="w-1/2 my-auto pr-4 pb-20">
               <div className="flex text-lg text-white font-bold items-center">
@@ -239,11 +246,17 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                 {_slide.heroText}
               </h1>
               <div className="flex flex-row mt-7">
-                <div className="mr-5" style={{ width: 140 }}>
-                  <Button className="w-full">
-                    {locale === "en" ? "Pricing" : "Harga"}
-                  </Button>
-                </div>
+                {_slide.id === "odoo" && (
+                  <div
+                    className="mr-5"
+                    style={{ width: 140 }}
+                    onClick={pricingClick}
+                  >
+                    <Button className="w-full">
+                      {locale === "en" ? "Pricing" : "Harga"}
+                    </Button>
+                  </div>
+                )}
                 <div style={{ width: 140 }}>
                   <Button color="secondary" className="w-full">
                     {locale === "en" ? "Learn More" : "Pelajari Lebih"}
