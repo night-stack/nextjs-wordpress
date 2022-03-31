@@ -34,7 +34,10 @@ export default function Meta() {
         name="description"
         content="We are a web design and development company, building websites that drive traffic, engagement, and conversion for industry-leading brands and startups in Indonesia"
       />
-      <meta property="og:image" content="/favicon/og-image.png" />
+      <meta
+        property="og:image"
+        content="https://medanwow.id/wp-content/uploads/2022/03/Logo-03.jpg"
+      />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     </Head>
   );
