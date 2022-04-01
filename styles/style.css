@@ -750,6 +750,9 @@ button {
   .empty-state {
     min-height: 300px;
   }
+  .hero-width481 {
+    max-width: 151px!important;
+  }
 }
 
 @keyframes slide {
