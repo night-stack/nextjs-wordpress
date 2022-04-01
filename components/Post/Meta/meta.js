@@ -30,6 +30,7 @@ export default function Meta() {
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
+      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta
         name="description"
         content="Kami adalah software house yang menyediakan jasa pembuatan aplikasi & website custom di Medan. Punya proyek? Kontak sekarang"
@@ -54,7 +55,6 @@ export default function Meta() {
       <meta property="og:image:height" content="513" />
       <meta property="og:image:alt" content="thumbnail witech enterprise" />
       <meta property="og:image:type" content="image/jpeg" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
     </Head>
   );
 }

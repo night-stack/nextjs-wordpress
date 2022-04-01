@@ -213,7 +213,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                   </div>
                 </div>
               </div>
-              <div className="bg-witech-blue hero-image hero-width481 md:w-[350px] md:h-[250px] max-w-[151px]">
+              <div className="bg-witech-blue hero-image hero-width481 md:w-[350px] md:h-[250px] lg:max-w-[151px]">
                 <img
                   src={data?.heroImage}
                   className="object-cover md:w-[250px] md:h-[200px]"
