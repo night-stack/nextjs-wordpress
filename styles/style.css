@@ -440,7 +440,105 @@ button {
   height: 100px;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .lg-wrapper-hero img {
+      height: 250px!important;
+    }
+    .services {
+      display: none !important;
+    }
+    .mobile-content {
+      display: block !important;
+    }
+    .headline,
+    .headline-dots {
+      display: none !important;
+    }
+    #feed {
+      display: none;
+    }
+    #feed-mobile {
+      display: block;
+    }
+    .lg\:w-\[250px\] {
+      width: auto!important;
+    }
+    .bg-witech-blue {
+      width: 400px!important;
+    }
+    .img-wrapper-services {
+      width: 600px!important;
+      border-radius: 45px 0px 0px 0px !important;
+    }
+    .img-wrapper-services img {
+      position: relative;
+      right: 12%;
+    }
+    .md\:right-md-menu {
+      right: 2.4%!important;
+    }
+    .md\:right-lang-md {
+      right: 19.5%!important;
+    }
+    .card {
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
+    .footer-sosmed {
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+    }
+    .footer .logo-wrapper {
+      max-width: 36% !important;
+    }
+  
+    .footer .ml-auto {
+      margin-top: 20px;
+    }
+  
+    .footer-contact .py-3 {
+      padding-top: 4px !important;
+      padding-bottom: 0px !important;
+    }
+  
+    .footer-logo {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .footer-logo-oddo-tablet {
+      width: 70px;
+      height: 26px;
+    }
+  
+    .footer-logo-sosmed-tablet {
+      width: 40px;
+    }
+  
+    .footer-font-11 {
+      font-size: 11px !important;
+    }
+    .footer-font-10 {
+      font-size: 10px !important;
+    }
+    .footer-font-9 {
+      font-size: 9px !important;
+    }
+    .md\:pl-10 {
+      padding-left: 4.5rem!important;
+    }
+    .btn-secondary {
+      font-size: 12px;
+      height: 30px;
+      padding: 0 0.5rem;
+    }
+    .btn-primary {
+      font-size: 12px;
+      height: 30px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
   nav#navbar {
     border-bottom: none !important;
   }
@@ -761,7 +859,7 @@ button {
   }
 }
 
-@media only screen and (min-device-width: 481px) and (max-device-width: 767px) {
+@media screen and (min-width: 481px) and (max-width: 767px) {
   nav#navbar {
     border-bottom: none !important;
   }
@@ -1080,7 +1178,6 @@ button {
 
   .hero-width481 img {
     width: 350px;
-    height: 200px;
   }
 
   .hero-text481 {
@@ -1093,7 +1190,7 @@ button {
   }
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   #navbar ul,
   .navbar-contact {
     font-size: 11px !important;

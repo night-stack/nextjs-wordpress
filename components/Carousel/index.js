@@ -23,7 +23,7 @@ const CustomCarousel = ({
     autoplaySpeed,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1020,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,

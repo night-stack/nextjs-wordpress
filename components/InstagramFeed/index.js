@@ -14,7 +14,7 @@ const InstagramFeed = ({ posts }) => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 3.1,
           slidesToScroll: 1,

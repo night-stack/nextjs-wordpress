@@ -3,6 +3,15 @@ import Head from "next/head";
 export default function Meta() {
   return (
     <Head>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1"
+      />
+      <meta
+        name="robots"
+        content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:standard"
+      />
+      <link rel="canonical" href="https://www.witech.co.id/" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"

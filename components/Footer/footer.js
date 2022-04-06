@@ -10,7 +10,7 @@ export default function Footer() {
     <>
       <div className="flex font-bold my-20 footer">
         <div
-          className="flex w-full logo-wrapper items-center"
+          className="flex w-full logo-wrapper items-start"
           style={{
             maxWidth: 345,
           }}

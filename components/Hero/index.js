@@ -44,7 +44,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
     cssEase: "linear",
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1280,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -213,10 +213,10 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
                   </div>
                 </div>
               </div>
-              <div className="bg-witech-blue hero-image hero-width481 md:w-[350px] md:h-[250px] lg:max-w-[151px]">
+              <div className="bg-witech-blue hero-image hero-width481 md:w-[350px] md:h-[250px]">
                 <img
                   src={data?.heroImage}
-                  className="object-cover md:w-[250px] md:h-[200px]"
+                  className="object-cover lg:w-[250px] md:h-[200px]"
                 />
               </div>
             </div>
@@ -265,7 +265,7 @@ const Hero = ({ data, autoPlay, stopAutoPlay }) => {
               </div>
             </div>
             <div
-              className="w-1/2 bg-witech-blue flex justify-center place-items-center"
+              className="w-1/2 bg-witech-blue flex justify-center place-items-center lg-wrapper-hero"
               style={{ borderTopLeftRadius: 150, minHeight: "471px" }}
             >
               <Image
