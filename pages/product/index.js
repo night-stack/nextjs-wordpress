@@ -7,7 +7,8 @@ const Product = () => {
     width: undefined,
     height: undefined,
   });
-  const [params, setParams] = React.useState("");
+  const [claimParams, setClaimParams] = React.useState("");
+  const [checkParams, setCheckParams] = React.useState("");
   const router = useRouter();
 
   React.useEffect(async () => {
@@ -18,7 +19,8 @@ const Product = () => {
         body: JSON.stringify({ trackId: router?.query?.trackId }),
       };
       const param = router?.asPath?.replace(router?.pathname, "");
-      setParams(`http://localhost:3000/form/claim-coupon${param}`);
+      setClaimParams(`http://localhost:3000/form/claim-coupon${param}`);
+      setCheckParams(`http://localhost:3000/form/unique-id${param}`);
       if (router?.query?.qrcodeId)
         fetch(
           `https://opim.api-dev.qodrbee.com/api/q/v2/${router?.query?.qrcodeId}`,
@@ -46,8 +48,15 @@ const Product = () => {
     <div>
       Contoh
       <iframe
+        src={checkParams}
+        width="100%"
+        height="fit-content"
+        scrolling="no"
+        frameBorder="0"
+      />
+      <iframe
         id="claim-coupon"
-        src={params}
+        src={claimParams}
         width="100%"
         height={windowSize?.height}
         scrolling="no"
