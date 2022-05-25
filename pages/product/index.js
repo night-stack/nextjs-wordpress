@@ -1,71 +1,83 @@
 import React from "react";
-import { useRouter } from "next/router";
 
 const Product = () => {
-  const [data, setData] = React.useState([]);
-  const [windowSize, setWindowSize] = React.useState({
-    width: undefined,
-    height: undefined,
+  const [data, setData] = React.useState({
+    id: "",
+    uid: "",
+    name: "",
+    gender: "",
+    departement: "",
   });
-  const [claimParams, setClaimParams] = React.useState("");
-  const [checkParams, setCheckParams] = React.useState("");
-  const router = useRouter();
+  const [responseData, setResponseData] = React.useState(null);
 
-  // React.useEffect(async () => {
-  //   if (router) {
-  //     const requestOptions = {
-  //       method: "POST",
-  //       headers: {
-  //         "access-control-allow-origin": "*",
-  //         "content-type": "application/json",
-  //         "referrer-policy": "no-referrer",
-  //       },
-  //       body: JSON.stringify({ trackId: router?.query?.trackId }),
-  //     };
-  //     // const param = router?.asPath?.replace(router?.pathname, "");
-  //     // setClaimParams(`http://localhost:3000/form/claim-coupon${param}`);
-  //     // setCheckParams(`http://localhost:3000/form/unique-id${param}`);
-  //     if (router?.query?.qrcodeId)
-  //       fetch(
-  //         `https://opim.api-dev.qodrbee.com/api/q/v2/${router?.query?.qrcodeId}`,
-  //         requestOptions
-  //       )
-  //         .then((req) => req.json())
-  //         .then((res) => {
-  //           if (res?.statusCode === 200) {
-  //             setData(res?.data);
-  //           }
-  //         });
-  //   }
-  // }, [router]);
+  const handleOnChange = (event) => {
+    const { name, value } = event.target;
 
-  // React.useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     setWindowSize({
-  //       width: window.innerWidth,
-  //       height: window.innerHeight,
-  //     });
-  //   }
-  // }, []);
+    setData((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const onSubmit = (event) => {
+    const token = "AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM";
+    fetch(
+      "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL0DeL_F8LkfwFkhEhvVzVXR0Lci2Nbl8M&maxResults=20&key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM"
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        setResponseData(json);
+      });
+    // func dispatch
+
+    setData({
+      id: "",
+      uid: "",
+      name: "",
+      gender: "",
+      departement: "",
+    });
+    event.preventDefault();
+  };
 
   return (
     <div>
-      {data.length > 0 ? (
-        <div className="w-full text-center justify-items-center grid">
-          <img src={data.product?.images[0]?.url} />
-          <p>
-            <b>{data.product?.name}</b>
-          </p>
-          <p>{data.product?.phone}</p>
-          <p>{data.product?.distributedBy}</p>
-          <p>{data.product?.producedBy}</p>
-          <p>{data.product?.sku}</p>
-          <p>{data.product?.category}</p>
-          <p>Rp{Intl.NumberFormat("id").format(data.product?.price)}</p>
-          <p>{data.product?.shortDescription}</p>
-        </div>
-      ) : null}
-      <div id="opim-form" />
+      <form>
+        <input
+          name="id"
+          value={data.id}
+          placeholder="id"
+          onChange={handleOnChange}
+        />
+        <input
+          name="uid"
+          value={data.uid}
+          placeholder="uid"
+          onChange={handleOnChange}
+        />
+        <input
+          name="name"
+          value={data.name}
+          placeholder="name"
+          onChange={handleOnChange}
+        />
+        <input
+          name="gender"
+          value={data.gender}
+          placeholder="gender"
+          onChange={handleOnChange}
+        />
+        <input
+          name="departement"
+          value={data.departement}
+          placeholder="departement"
+          onChange={handleOnChange}
+        />
+        <button
+          type="button"
+          className="py-2 px-6 bg-witech-blue text-white"
+          onClick={onSubmit}
+        >
+          Tester
+        </button>
+      </form>
     </div>
   );
 };
